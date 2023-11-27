@@ -1,0 +1,202 @@
+//`include "GF2_LDPC_fgallag_0x0000c_assign_inc.sv"
+//always_comb begin
+              Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00000] = 
+          (!fgallag_sel['h0000c]) ? 
+                       Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00000] : //%
+                       Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00001] ;
+//end
+//always_comb begin
+              Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00001] = 
+          (!fgallag_sel['h0000c]) ? 
+                       Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00002] : //%
+                       Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00003] ;
+//end
+//always_comb begin
+              Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00002] = 
+          (!fgallag_sel['h0000c]) ? 
+                       Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00004] : //%
+                       Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00005] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00003] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00006] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00004] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00008] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00005] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0000a] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00006] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0000c] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00007] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0000e] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00008] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00010] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00009] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00012] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0000a] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00014] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0000b] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00016] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0000c] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00018] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0000d] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0001a] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0000e] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0001c] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0000f] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0001e] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00010] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00020] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00011] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00022] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00012] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00024] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00013] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00026] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00014] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00028] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00015] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0002a] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00016] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0002c] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00017] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0002e] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00018] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00030] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00019] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00032] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0001a] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00034] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0001b] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00036] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0001c] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00038] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0001d] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0003a] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0001e] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0003c] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0001f] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0003e] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00020] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00040] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00021] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00042] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00022] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00044] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00023] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00046] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00024] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00048] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00025] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0004a] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00026] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0004c] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00027] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0004e] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00028] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00050] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00029] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00052] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0002a] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00054] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0002b] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00056] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0002c] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00058] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0002d] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0005a] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0002e] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0005c] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0002f] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0005e] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00030] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00060] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00031] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00062] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00032] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00064] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00033] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00066] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00034] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00068] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00035] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0006a] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00036] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0006c] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00037] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0006e] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00038] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00070] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h00039] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00072] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0003a] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00074] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0003b] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00076] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0003c] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h00078] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0003d] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0007a] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0003e] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0007c] ;
+//end
+//always_comb begin // 
+               Ibadc2e1716f3631bf6927ab6aa76689d577d209baf59b74521b39c268f0c78b6['h0003f] =  Iab9b2227df9be85847d2443b8646d4fc421de8fd5d60f08364bd1704f7631d96['h0007e] ;
+//end
