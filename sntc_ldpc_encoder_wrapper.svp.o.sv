@@ -46,8 +46,9 @@ input wire                       clk
 wire [MM-1:0]             tmp_s;
 wire [NN-1:0]             y_nr_in;
 `include  "sntc_encoder.sv"
-assign y_nr_in[NN-MM-1:0] = y_nr_in_port[NN-MM-1:0];
-assign y_nr_in[NN-1:NN-MM] = Ie92cd4bf91559fa3b7ff7e09054c786f5ead3b2e5930dda92caf0d4060cd714c[NN-1:NN-MM];
+
+assign y_nr_in[NN-1:MM]  = y_nr_in_port [NN-MM-1:0];
+assign y_nr_in[MM-1:0 ]  = Ie92cd4bf91559fa3b7ff7e09054c786f5ead3b2e5930dda92caf0d4060cd714c       [MM-1   :0];
 
 
 

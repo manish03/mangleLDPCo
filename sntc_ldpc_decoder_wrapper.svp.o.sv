@@ -43,6 +43,7 @@ parameter SUM_LEN        = 32
 
 
 input wire  [NN-1:0] [1:0]           q0,
+output wire  [NN-1:0]                tmp_bit,
 
 input wire  [MM-1:0]                 exp_syn,
 input wire  [31:0]                   percent_probability_int,
@@ -68,7 +69,6 @@ input wire                           clk
 `ifdef ENCRYPT
 `endif
 
-wire [NN-1:0]                 tmp_bit;
 wire [MM-1:0]                 syndrome;
 wire [SUM_LEN-1:0]            HamDist_syndrome;
 reg  [SUM_LEN-1:0]            HamDist_loop;
