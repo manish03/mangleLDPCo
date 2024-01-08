@@ -200,8 +200,8 @@ begin
   if (c_test) begin
 
 
-              q0  [0] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [0] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [1] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [2] <= 2'b01;  // BPSK 0: 1  === 2'b01
@@ -210,22 +210,22 @@ begin
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [4] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [5] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [5] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [6] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [7] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [7] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [8] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [9] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [10] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [10] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [11] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [12] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [12] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [13] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [14] <= 2'b01;  // BPSK 0: 1  === 2'b01
@@ -234,64 +234,64 @@ begin
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [16] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [17] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [18] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [17] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [19] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [18] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [20] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [19] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
+              q0  [20] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [21] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [22] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [23] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [23] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [24] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [25] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [26] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
-              q0  [27] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [26] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
+              q0  [27] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [28] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [29] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [30] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [30] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [31] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [32] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [33] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [34] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [33] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [35] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [34] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
+              q0  [35] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [36] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [37] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [37] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [38] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [39] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [39] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [40] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [41] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [42] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [42] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [43] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [44] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [45] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [45] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [46] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [47] <= 2'b01;  // BPSK 0: 1  === 2'b01
@@ -300,176 +300,176 @@ begin
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [49] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [50] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
-              q0  [51] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [50] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [52] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [53] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [51] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
+              q0  [52] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [53] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [54] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [55] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [55] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [56] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [57] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [58] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [59] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [58] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [60] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [59] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
+              q0  [60] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [61] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [62] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [63] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [62] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [64] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [63] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [65] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [64] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
+              q0  [65] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [66] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [67] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
-              q0  [68] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [67] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
+              q0  [68] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [69] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [70] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [71] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [72] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [70] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [71] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [72] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [73] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [74] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
-              q0  [75] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [74] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
+              q0  [75] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [76] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [77] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [78] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [78] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [79] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [80] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [80] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [81] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [82] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [83] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [84] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [83] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [85] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [84] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [86] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [85] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
+              q0  [86] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [87] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [88] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [88] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [89] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [89] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [90] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [90] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [91] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [91] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
-              q0  [92] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [92] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [93] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [94] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
-              q0  [95] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [94] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
+              q0  [95] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [96] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [97] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [98] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
-              q0  [99] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
-              q0  [100] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [98] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [101] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [99] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
+              q0  [100] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [101] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [102] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [103] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [103] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [104] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [105] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
-              q0  [106] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
-              q0  [107] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
-              q0  [108] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [105] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [109] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [106] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [110] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [107] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
+              q0  [108] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [109] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [110] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [111] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [112] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
-              q0  [113] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [112] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
+              q0  [113] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [114] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [115] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [116] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [117] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [117] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [118] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [119] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [119] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [120] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [121] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [122] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [123] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [122] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
+              q0  [123] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [124] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [125] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [126] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [126] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [127] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [128] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [129] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [129] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [130] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [131] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [132] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [133] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [134] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [133] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
+              q0  [134] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [135] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [136] <= 2'b11;  // BPSK 1: -1 === 2'b11
@@ -478,138 +478,138 @@ begin
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [138] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [139] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [139] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [140] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [141] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [142] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [143] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [143] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [144] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [145] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [146] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [147] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [147] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [148] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [149] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [150] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [151] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [152] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [151] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [153] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [152] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
+              q0  [153] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [154] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [155] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [155] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [156] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [157] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [157] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [158] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [159] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
-              q0  [160] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [159] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [160] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [161] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [162] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [163] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
-              q0  [164] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [163] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [165] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [164] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [166] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [165] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
+              q0  [166] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [167] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [168] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [169] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [170] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [169] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [171] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [170] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
+              q0  [171] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [172] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [173] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [174] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [175] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [175] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [176] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [176] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [177] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [178] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [179] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [177] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [178] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [179] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [180] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [181] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [182] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [183] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
-              q0  [184] <= 2'b01;  // BPSK 0: 1  === 2'b01
-                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [183] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [184] <= 2'b11;  // BPSK 1: -1 === 2'b11
+                                 // value of 1 means -1 in BPSK which is 2'b11
               q0  [185] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
               q0  [186] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [187] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
-              q0  [188] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [189] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [190] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [191] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [192] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [188] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [193] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [189] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [190] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [191] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [192] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
+              q0  [193] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [194] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [195] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [196] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [195] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
+              q0  [196] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [197] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [198] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [198] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [199] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [200] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
-              q0  [201] <= 2'b01;  // BPSK 0: 1  === 2'b01
+              q0  [200] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [202] <= 2'b11;  // BPSK 1: -1 === 2'b11
+              q0  [201] <= 2'b11;  // BPSK 1: -1 === 2'b11
                                  // value of 1 means -1 in BPSK which is 2'b11
+              q0  [202] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [203] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
-              q0  [204] <= 2'b11;  // BPSK 1: -1 === 2'b11
-                                 // value of 1 means -1 in BPSK which is 2'b11
+              q0  [204] <= 2'b01;  // BPSK 0: 1  === 2'b01
+                                 // value of 0 means 1 in BPSK which is 2'b01
               q0  [205] <= 2'b01;  // BPSK 0: 1  === 2'b01
                                  // value of 0 means 1 in BPSK which is 2'b01
               q0  [206] <= 2'b11;  // BPSK 1: -1 === 2'b11
@@ -787,46 +787,128 @@ begin
          exp_syn [167] <= 1'b1;
 
   end else begin //c_test==0
-         y_nr_in[0] = 0; //data
-         y_nr_in[1] = 1; //data
-         y_nr_in[2] = 0; //data
-         y_nr_in[3] = 1; //data
-         y_nr_in[4] = 0; //data
-         y_nr_in[5] = 1; //data
-         y_nr_in[6] = 0; //data
-         y_nr_in[7] = 1; //data
-         y_nr_in[8] = 0; //data
-         y_nr_in[9] = 1; //data
-         y_nr_in[10] = 0; //data
-         y_nr_in[11] = 1; //data
-         y_nr_in[12] = 0; //data
-         y_nr_in[13] = 1; //data
-         y_nr_in[14] = 0; //data
-         y_nr_in[15] = 1; //data
-         y_nr_in[16] = 0; //data
-         y_nr_in[17] = 1; //data
-         y_nr_in[18] = 0; //data
-         y_nr_in[19] = 1; //data
-         y_nr_in[20] = 0; //data
-         y_nr_in[21] = 1; //data
-         y_nr_in[22] = 0; //data
-         y_nr_in[23] = 1; //data
-         y_nr_in[24] = 0; //data
-         y_nr_in[25] = 1; //data
-         y_nr_in[26] = 0; //data
-         y_nr_in[27] = 1; //data
-         y_nr_in[28] = 0; //data
-         y_nr_in[29] = 1; //data
-         y_nr_in[30] = 0; //data
-         y_nr_in[31] = 1; //data
-         y_nr_in[32] = 0; //data
-         y_nr_in[33] = 1; //data
-         y_nr_in[34] = 0; //data
-         y_nr_in[35] = 1; //data
-         y_nr_in[36] = 0; //data
-         y_nr_in[37] = 1; //data
-         y_nr_in[38] = 0; //data
-         y_nr_in[39] = 1; //data
+         y_nr_in = {(NN-MM){1'b0}}; //data init
+         //y_nr_in[0] = 1; //data
+         y_nr_in[0] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[1] = 1; //data
+         y_nr_in[1] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[2] = 0; //data
+         y_nr_in[2] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[3] = 1; //data
+         y_nr_in[3] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[4] = 0; //data
+         y_nr_in[4] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[5] = 0; //data
+         y_nr_in[5] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[6] = 0; //data
+         y_nr_in[6] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[7] = 0; //data
+         y_nr_in[7] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[8] = 0; //data
+         y_nr_in[8] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[9] = 1; //data
+         y_nr_in[9] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[10] = 1; //data
+         y_nr_in[10] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[11] = 1; //data
+         y_nr_in[11] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[12] = 1; //data
+         y_nr_in[12] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[13] = 1; //data
+         y_nr_in[13] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[14] = 0; //data
+         y_nr_in[14] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[15] = 1; //data
+         y_nr_in[15] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[16] = 0; //data
+         y_nr_in[16] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[17] = 0; //data
+         y_nr_in[17] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[18] = 1; //data
+         y_nr_in[18] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[19] = 0; //data
+         y_nr_in[19] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[20] = 1; //data
+         y_nr_in[20] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[21] = 1; //data
+         y_nr_in[21] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[22] = 0; //data
+         y_nr_in[22] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[23] = 0; //data
+         y_nr_in[23] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[24] = 0; //data
+         y_nr_in[24] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[25] = 1; //data
+         y_nr_in[25] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[26] = 1; //data
+         y_nr_in[26] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[27] = 0; //data
+         y_nr_in[27] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[28] = 0; //data
+         y_nr_in[28] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[29] = 1; //data
+         y_nr_in[29] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[30] = 1; //data
+         y_nr_in[30] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[31] = 1; //data
+         y_nr_in[31] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[32] = 0; //data
+         y_nr_in[32] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[33] = 0; //data
+         y_nr_in[33] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[34] = 1; //data
+         y_nr_in[34] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[35] = 0; //data
+         y_nr_in[35] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[36] = 0; //data
+         y_nr_in[36] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[37] = 0; //data
+         y_nr_in[37] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[38] = 0; //data
+         y_nr_in[38] = $urandom_range(0,1); //data
+         #10;
+         //y_nr_in[39] = 0; //data
+         y_nr_in[39] = $urandom_range(0,1); //data
+         #10;
+     $display("last_bit write encoder %t", $time);
 
      repeat (1) @ (posedge clk);
 
@@ -839,7 +921,7 @@ begin
      else
           $info ("is a valid code word");
 
-       y_nr_w_err[0] = 0 ; //error cword
+       y_nr_w_err[0] = 1 ; //error cword
        error_count++;
        y_nr_w_err[1] = 1 ; //error cword
        error_count++;
@@ -849,21 +931,21 @@ begin
        error_count++;
        y_nr_w_err[4] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[5] = 1 ; //error cword
+       y_nr_w_err[5] = 0 ; //error cword
        error_count++;
        y_nr_w_err[6] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[7] = 1 ; //error cword
+       y_nr_w_err[7] = 0 ; //error cword
        error_count++;
        y_nr_w_err[8] = 0 ; //error cword
        error_count++;
        y_nr_w_err[9] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[10] = 0 ; //error cword
+       y_nr_w_err[10] = 1 ; //error cword
        error_count++;
        y_nr_w_err[11] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[12] = 0 ; //error cword
+       y_nr_w_err[12] = 1 ; //error cword
        error_count++;
        y_nr_w_err[13] = 1 ; //error cword
        error_count++;
@@ -873,63 +955,63 @@ begin
        error_count++;
        y_nr_w_err[16] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[17] = 1 ; //error cword
+       y_nr_w_err[17] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[18] = 0 ; //error cword
+       y_nr_w_err[18] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[19] = 1 ; //error cword
+       y_nr_w_err[19] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[20] = 0 ; //error cword
+       y_nr_w_err[20] = 1 ; //error cword
        error_count++;
        y_nr_w_err[21] = 1 ; //error cword
        error_count++;
        y_nr_w_err[22] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[23] = 1 ; //error cword
+       y_nr_w_err[23] = 0 ; //error cword
        error_count++;
        y_nr_w_err[24] = 0 ; //error cword
        error_count++;
        y_nr_w_err[25] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[26] = 0 ; //error cword
+       y_nr_w_err[26] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[27] = 1 ; //error cword
+       y_nr_w_err[27] = 0 ; //error cword
        error_count++;
        y_nr_w_err[28] = 0 ; //error cword
        error_count++;
        y_nr_w_err[29] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[30] = 0 ; //error cword
+       y_nr_w_err[30] = 1 ; //error cword
        error_count++;
        y_nr_w_err[31] = 1 ; //error cword
        error_count++;
        y_nr_w_err[32] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[33] = 1 ; //error cword
+       y_nr_w_err[33] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[34] = 0 ; //error cword
+       y_nr_w_err[34] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[35] = 1 ; //error cword
+       y_nr_w_err[35] = 0 ; //error cword
        error_count++;
        y_nr_w_err[36] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[37] = 1 ; //error cword
+       y_nr_w_err[37] = 0 ; //error cword
        error_count++;
        y_nr_w_err[38] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[39] = 1 ; //error cword
+       y_nr_w_err[39] = 0 ; //error cword
        error_count++;
        y_nr_w_err[40] = 0 ; //error cword
        error_count++;
        y_nr_w_err[41] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[42] = 0 ; //error cword
+       y_nr_w_err[42] = 1 ; //error cword
        error_count++;
        y_nr_w_err[43] = 0 ; //error cword
        error_count++;
        y_nr_w_err[44] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[45] = 0 ; //error cword
+       y_nr_w_err[45] = 1 ; //error cword
        error_count++;
        y_nr_w_err[46] = 1 ; //error cword
        error_count++;
@@ -939,133 +1021,133 @@ begin
        error_count++;
        y_nr_w_err[49] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[50] = 0 ; //error cword
+       y_nr_w_err[50] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[51] = 1 ; //error cword
+       y_nr_w_err[51] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[52] = 1 ; //error cword
+       y_nr_w_err[52] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[53] = 0 ; //error cword
+       y_nr_w_err[53] = 1 ; //error cword
        error_count++;
        y_nr_w_err[54] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[55] = 1 ; //error cword
+       y_nr_w_err[55] = 0 ; //error cword
        error_count++;
        y_nr_w_err[56] = 1 ; //error cword
        error_count++;
        y_nr_w_err[57] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[58] = 1 ; //error cword
+       y_nr_w_err[58] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[59] = 0 ; //error cword
+       y_nr_w_err[59] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[60] = 1 ; //error cword
+       y_nr_w_err[60] = 0 ; //error cword
        error_count++;
        y_nr_w_err[61] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[62] = 1 ; //error cword
+       y_nr_w_err[62] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[63] = 0 ; //error cword
+       y_nr_w_err[63] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[64] = 1 ; //error cword
+       y_nr_w_err[64] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[65] = 0 ; //error cword
+       y_nr_w_err[65] = 1 ; //error cword
        error_count++;
        y_nr_w_err[66] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[67] = 0 ; //error cword
+       y_nr_w_err[67] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[68] = 1 ; //error cword
+       y_nr_w_err[68] = 0 ; //error cword
        error_count++;
        y_nr_w_err[69] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[70] = 1 ; //error cword
+       y_nr_w_err[70] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[71] = 1 ; //error cword
+       y_nr_w_err[71] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[72] = 1 ; //error cword
+       y_nr_w_err[72] = 0 ; //error cword
        error_count++;
        y_nr_w_err[73] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[74] = 0 ; //error cword
+       y_nr_w_err[74] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[75] = 1 ; //error cword
+       y_nr_w_err[75] = 0 ; //error cword
        error_count++;
        y_nr_w_err[76] = 0 ; //error cword
        error_count++;
        y_nr_w_err[77] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[78] = 0 ; //error cword
+       y_nr_w_err[78] = 1 ; //error cword
        error_count++;
        y_nr_w_err[79] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[80] = 1 ; //error cword
+       y_nr_w_err[80] = 0 ; //error cword
        error_count++;
        y_nr_w_err[81] = 1 ; //error cword
        error_count++;
        y_nr_w_err[82] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[83] = 1 ; //error cword
+       y_nr_w_err[83] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[84] = 0 ; //error cword
+       y_nr_w_err[84] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[85] = 1 ; //error cword
+       y_nr_w_err[85] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[86] = 0 ; //error cword
+       y_nr_w_err[86] = 1 ; //error cword
        error_count++;
        y_nr_w_err[87] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[88] = 1 ; //error cword
+       y_nr_w_err[88] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[89] = 0 ; //error cword
+       y_nr_w_err[89] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[90] = 1 ; //error cword
+       y_nr_w_err[90] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[91] = 0 ; //error cword
+       y_nr_w_err[91] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[92] = 0 ; //error cword
+       y_nr_w_err[92] = 1 ; //error cword
        error_count++;
        y_nr_w_err[93] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[94] = 0 ; //error cword
+       y_nr_w_err[94] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[95] = 1 ; //error cword
+       y_nr_w_err[95] = 0 ; //error cword
        error_count++;
        y_nr_w_err[96] = 1 ; //error cword
        error_count++;
        y_nr_w_err[97] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[98] = 0 ; //error cword
+       y_nr_w_err[98] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[99] = 0 ; //error cword
+       y_nr_w_err[99] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[100] = 1 ; //error cword
+       y_nr_w_err[100] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[101] = 1 ; //error cword
+       y_nr_w_err[101] = 0 ; //error cword
        error_count++;
        y_nr_w_err[102] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[103] = 1 ; //error cword
+       y_nr_w_err[103] = 0 ; //error cword
        error_count++;
        y_nr_w_err[104] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[105] = 0 ; //error cword
+       y_nr_w_err[105] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[106] = 0 ; //error cword
+       y_nr_w_err[106] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[107] = 0 ; //error cword
+       y_nr_w_err[107] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[108] = 1 ; //error cword
+       y_nr_w_err[108] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[109] = 1 ; //error cword
+       y_nr_w_err[109] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[110] = 1 ; //error cword
+       y_nr_w_err[110] = 0 ; //error cword
        error_count++;
        y_nr_w_err[111] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[112] = 0 ; //error cword
+       y_nr_w_err[112] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[113] = 1 ; //error cword
+       y_nr_w_err[113] = 0 ; //error cword
        error_count++;
        y_nr_w_err[114] = 0 ; //error cword
        error_count++;
@@ -1073,31 +1155,31 @@ begin
        error_count++;
        y_nr_w_err[116] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[117] = 1 ; //error cword
+       y_nr_w_err[117] = 0 ; //error cword
        error_count++;
        y_nr_w_err[118] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[119] = 0 ; //error cword
+       y_nr_w_err[119] = 1 ; //error cword
        error_count++;
        y_nr_w_err[120] = 1 ; //error cword
        error_count++;
        y_nr_w_err[121] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[122] = 1 ; //error cword
+       y_nr_w_err[122] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[123] = 0 ; //error cword
+       y_nr_w_err[123] = 1 ; //error cword
        error_count++;
        y_nr_w_err[124] = 1 ; //error cword
        error_count++;
        y_nr_w_err[125] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[126] = 1 ; //error cword
+       y_nr_w_err[126] = 0 ; //error cword
        error_count++;
        y_nr_w_err[127] = 1 ; //error cword
        error_count++;
        y_nr_w_err[128] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[129] = 1 ; //error cword
+       y_nr_w_err[129] = 0 ; //error cword
        error_count++;
        y_nr_w_err[130] = 1 ; //error cword
        error_count++;
@@ -1105,9 +1187,9 @@ begin
        error_count++;
        y_nr_w_err[132] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[133] = 1 ; //error cword
+       y_nr_w_err[133] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[134] = 0 ; //error cword
+       y_nr_w_err[134] = 1 ; //error cword
        error_count++;
        y_nr_w_err[135] = 1 ; //error cword
        error_count++;
@@ -1117,7 +1199,7 @@ begin
        error_count++;
        y_nr_w_err[138] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[139] = 0 ; //error cword
+       y_nr_w_err[139] = 1 ; //error cword
        error_count++;
        y_nr_w_err[140] = 1 ; //error cword
        error_count++;
@@ -1125,7 +1207,7 @@ begin
        error_count++;
        y_nr_w_err[142] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[143] = 0 ; //error cword
+       y_nr_w_err[143] = 1 ; //error cword
        error_count++;
        y_nr_w_err[144] = 1 ; //error cword
        error_count++;
@@ -1133,7 +1215,7 @@ begin
        error_count++;
        y_nr_w_err[146] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[147] = 0 ; //error cword
+       y_nr_w_err[147] = 1 ; //error cword
        error_count++;
        y_nr_w_err[148] = 1 ; //error cword
        error_count++;
@@ -1141,47 +1223,47 @@ begin
        error_count++;
        y_nr_w_err[150] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[151] = 1 ; //error cword
+       y_nr_w_err[151] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[152] = 0 ; //error cword
+       y_nr_w_err[152] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[153] = 1 ; //error cword
+       y_nr_w_err[153] = 0 ; //error cword
        error_count++;
        y_nr_w_err[154] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[155] = 1 ; //error cword
+       y_nr_w_err[155] = 0 ; //error cword
        error_count++;
        y_nr_w_err[156] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[157] = 0 ; //error cword
+       y_nr_w_err[157] = 1 ; //error cword
        error_count++;
        y_nr_w_err[158] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[159] = 0 ; //error cword
+       y_nr_w_err[159] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[160] = 0 ; //error cword
+       y_nr_w_err[160] = 1 ; //error cword
        error_count++;
        y_nr_w_err[161] = 0 ; //error cword
        error_count++;
        y_nr_w_err[162] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[163] = 0 ; //error cword
+       y_nr_w_err[163] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[164] = 1 ; //error cword
+       y_nr_w_err[164] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[165] = 0 ; //error cword
+       y_nr_w_err[165] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[166] = 1 ; //error cword
+       y_nr_w_err[166] = 0 ; //error cword
        error_count++;
        y_nr_w_err[167] = 0 ; //error cword
        error_count++;
        y_nr_w_err[168] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[169] = 1 ; //error cword
+       y_nr_w_err[169] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[170] = 0 ; //error cword
+       y_nr_w_err[170] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[171] = 1 ; //error cword
+       y_nr_w_err[171] = 0 ; //error cword
        error_count++;
        y_nr_w_err[172] = 0 ; //error cword
        error_count++;
@@ -1189,15 +1271,15 @@ begin
        error_count++;
        y_nr_w_err[174] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[175] = 0 ; //error cword
+       y_nr_w_err[175] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[176] = 1 ; //error cword
+       y_nr_w_err[176] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[177] = 1 ; //error cword
+       y_nr_w_err[177] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[178] = 1 ; //error cword
+       y_nr_w_err[178] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[179] = 1 ; //error cword
+       y_nr_w_err[179] = 0 ; //error cword
        error_count++;
        y_nr_w_err[180] = 1 ; //error cword
        error_count++;
@@ -1205,9 +1287,9 @@ begin
        error_count++;
        y_nr_w_err[182] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[183] = 0 ; //error cword
+       y_nr_w_err[183] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[184] = 0 ; //error cword
+       y_nr_w_err[184] = 1 ; //error cword
        error_count++;
        y_nr_w_err[185] = 1 ; //error cword
        error_count++;
@@ -1215,39 +1297,39 @@ begin
        error_count++;
        y_nr_w_err[187] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[188] = 1 ; //error cword
+       y_nr_w_err[188] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[189] = 1 ; //error cword
+       y_nr_w_err[189] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[190] = 1 ; //error cword
+       y_nr_w_err[190] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[191] = 1 ; //error cword
+       y_nr_w_err[191] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[192] = 0 ; //error cword
+       y_nr_w_err[192] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[193] = 1 ; //error cword
+       y_nr_w_err[193] = 0 ; //error cword
        error_count++;
        y_nr_w_err[194] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[195] = 1 ; //error cword
+       y_nr_w_err[195] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[196] = 1 ; //error cword
+       y_nr_w_err[196] = 0 ; //error cword
        error_count++;
        y_nr_w_err[197] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[198] = 1 ; //error cword
+       y_nr_w_err[198] = 0 ; //error cword
        error_count++;
        y_nr_w_err[199] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[200] = 1 ; //error cword
+       y_nr_w_err[200] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[201] = 0 ; //error cword
+       y_nr_w_err[201] = 1 ; //error cword
        error_count++;
-       y_nr_w_err[202] = 1 ; //error cword
+       y_nr_w_err[202] = 0 ; //error cword
        error_count++;
        y_nr_w_err[203] = 0 ; //error cword
        error_count++;
-       y_nr_w_err[204] = 1 ; //error cword
+       y_nr_w_err[204] = 0 ; //error cword
        error_count++;
        y_nr_w_err[205] = 0 ; //error cword
        error_count++;
@@ -1322,8 +1404,10 @@ end
 endmodule
 
 //C DBG: bsc p:0.100000 probability:2.197225 percent_probability_int:'d4500
+
+ //GF Syndrome valid code word
 //y_int:
- //555afa5f0a500af515a7f53af0f1a5afa9f555da50aaaaaaaaaa
+ //42010bd08429a17d9dc5b9998e4d7ad6e42e89667404e634be0b
 //syny_err:
  //0200400200100008100880c0000680200320002200
 //C DBG: bsc p:0.038462 probability:3.218876 percent_probability_int:'d6592

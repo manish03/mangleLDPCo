@@ -33,7 +33,7 @@ parameter SUM_LEN= SUM_MM
 ) (
 
 
-input wire [NN-MM-1:0]           y_nr_in_port,
+input wire  [NN-MM-1:0 ]         y_nr_in_port,
 output wire [NN-1:0]             y_nr,
 output wire                      valid_cword,
 /* I1e4d9aa7cb1ef438f80454b61c625f0c6aed19675cb2c2f865cbd2e2c3ef2ff7 Ib8a92ab2b5e2e68fc63a575fff1d62c25ec6d30209e164d82ec85f5576d9d940 I5fedfe54fddcdc5145ac6dd38b4c3dead65f127535af2e07a7b9790515afdb04 */
@@ -47,8 +47,8 @@ wire [MM-1:0]             tmp_s;
 wire [NN-1:0]             y_nr_in;
 `include  "sntc_encoder.sv"
 
-assign y_nr_in[NN-1:MM]  = y_nr_in_port [NN-MM-1:0];
-assign y_nr_in[MM-1:0 ]  = Ie92cd4bf91559fa3b7ff7e09054c786f5ead3b2e5930dda92caf0d4060cd714c       [MM-1   :0];
+assign y_nr_in[NN-MM-1:0    ]=y_nr_in_port[NN-MM-1:0    ];
+assign y_nr_in[NN-1   :NN-MM]=Ie92cd4bf91559fa3b7ff7e09054c786f5ead3b2e5930dda92caf0d4060cd714c      [NN-1   :NN-MM];
 
 
 
