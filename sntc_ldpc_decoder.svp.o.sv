@@ -5448,14 +5448,14 @@ reg                           I6d0b0c1a3968ec36626f19660bedfe0a538a7835edd2a21dd
 // `include "GF2_LDPC_fgallag_inc_all.sv"
 // `include "GF2_LDPC_flogtanh_inc_all.sv"
 
-function reg [MAX_SUM_WDTH_LONG-1:0] I1dce4d69e7e04f3253de313dcea6b0eb6035abebd2eccf8ed1db45c6548b80af ( reg [31 :0] I24de34e5237762ee081db8bafa630c1f9d05a34a83f96a2eb34811d098d3f5ec);
+function reg [MAX_SUM_WDTH_LONG-1:0] I1dce4d69e7e04f3253de313dcea6b0eb6035abebd2eccf8ed1db45c6548b80af ( input reg [31 :0] I24de34e5237762ee081db8bafa630c1f9d05a34a83f96a2eb34811d098d3f5ec);
      `include "GF2_LDPC_flogtanh_inc_inc_all.sv"
      flogtanh_sel = I24de34e5237762ee081db8bafa630c1f9d05a34a83f96a2eb34811d098d3f5ec;
      `include "GF2_LDPC_flogtanh.sv"
      return Ica91d9bac0dd49c3d4a33cbeec278026d5f4b3f1e4fdf2d3d75f4d666e11a0b2[0];
 endfunction : I1dce4d69e7e04f3253de313dcea6b0eb6035abebd2eccf8ed1db45c6548b80af
 
-function reg [MAX_SUM_WDTH_LONG-1:0] Ie231944bb56504afd4cd4f051945212293ae680bfa7f185d00769b77d1dd196f ( reg [31 :0] I24de34e5237762ee081db8bafa630c1f9d05a34a83f96a2eb34811d098d3f5ec);
+function reg [MAX_SUM_WDTH_LONG-1:0] Ie231944bb56504afd4cd4f051945212293ae680bfa7f185d00769b77d1dd196f ( input reg [31 :0] I24de34e5237762ee081db8bafa630c1f9d05a34a83f96a2eb34811d098d3f5ec);
      `include "GF2_LDPC_fgallag_inc_inc_all.sv"
      fgallag_sel = I24de34e5237762ee081db8bafa630c1f9d05a34a83f96a2eb34811d098d3f5ec;
      `include "GF2_LDPC_fgallag.sv"
