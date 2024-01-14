@@ -42,8 +42,10 @@ parameter SUM_LEN        = 32
 ) (
 
 
-input wire  [NN-1:0] [1:0]           q0,
-output wire  [NN-1:0]                tmp_bit,
+input wire  [NN-1:0]                 q0_0,
+input wire  [NN-1:0]                 q0_1,
+
+output wire  [NN-1:0]                final_y_nr_dec,
 
 input wire  [MM-1:0]                 exp_syn,
 input wire  [31:0]                   percent_probability_int,
@@ -54,8 +56,9 @@ input wire  [SUM_LEN-1:0]            HamDist_iir1,
 input wire  [SUM_LEN-1:0]            HamDist_iir2,
 input wire  [SUM_LEN-1:0]            HamDist_iir3,
 
-output wire [1:0]                    converged,
-output wire                          converged_valid,
+output reg                           converged_loops_ended,
+output reg                           converged_pass_fail,
+
 input  wire                          start,
 output reg                           valid,
 output wire                          valid_cword,
@@ -69,8 +72,8 @@ input wire                           clk
 `ifdef ENCRYPT
 `endif
 
-wire [MM-1:0]                 syndrome;
-wire [SUM_LEN-1:0]            HamDist_syndrome;
+wire [MM-1:0]                 cur_syndrome;
+wire [SUM_LEN-1:0]            HamDist_sum_mm;
 reg  [SUM_LEN-1:0]            HamDist_loop;
 reg  [SUM_LEN-1:0]            HamDist_cntr;
 wire                          Id9ac53997afa49d1b311d681cbd804894604a5574f6121604013d48a0f15afea;
@@ -78,14 +81,15 @@ reg                           start_int;
 
 wire  [NN-1:0]                Ia1fce4363854ff888cff4b8e7875d600c2682390412a8cf79b37d0b11148b0fa;
 
+wire                          HamDist_cntr_inc_converged_valid;
 
 
 sntc_ldpc_syndrome_wrapper I91a4661299ae4c39b62210ac04f903ca0081d0f8e0678b9b535f1f9220c022c9
 (
 
 
-                                  .y_nr_in                (tmp_bit),
-                                  .syn_nr_port            (syndrome),
+                                  .y_nr_in                (final_y_nr_dec),
+                                  .syn_nr_port            (cur_syndrome),
 /* I1e4d9aa7cb1ef438f80454b61c625f0c6aed19675cb2c2f865cbd2e2c3ef2ff7 Ib8a92ab2b5e2e68fc63a575fff1d62c25ec6d30209e164d82ec85f5576d9d940 I5fedfe54fddcdc5145ac6dd38b4c3dead65f127535af2e07a7b9790515afdb04 */
                                   .clr                    (clr),
 /* I1e4d9aa7cb1ef438f80454b61c625f0c6aed19675cb2c2f865cbd2e2c3ef2ff7 I2f08a120cf6d1091827fd5d929bad0cbcaa5eff7ae0801098357ed0149cbc06e I5fedfe54fddcdc5145ac6dd38b4c3dead65f127535af2e07a7b9790515afdb04 */
@@ -97,18 +101,24 @@ sntc_ldpc_syndrome_wrapper I91a4661299ae4c39b62210ac04f903ca0081d0f8e0678b9b535f
 sntc_ldpc_decoder I3414f84d3b991b8c5a795f818af593d1a8d64247b2ba65290efbb63cf115c9a2
 (
 
-                                  .q0                     (q0),
-                                  .syndrome               (syndrome),
+                                  .q0_0                   (q0_0),
+                                  .q0_1                   (q0_1),
+                                  .exp_syn                (exp_syn),
+                                  .cur_syndrome               (cur_syndrome),
                                   .percent_probability_int(percent_probability_int),
                                   .HamDist_iir1           (HamDist_iir1),
                                   .HamDist_iir2           (HamDist_iir1),
                                   .HamDist_iir3           (HamDist_iir1),
 
-                                  .tmp_bit                (tmp_bit),
-                                  .HamDist_syndrome       (HamDist_syndrome),
+                                  .final_y_nr_dec         (final_y_nr_dec),
+                                  .HamDist_sum_mm       (HamDist_sum_mm),
                                   .HamDist_loop           (HamDist_loop),
-                                  .converged              (converged),
-                                  .converged_valid        (converged_valid),
+
+                                  .converged_loops_ended  (converged_loops_ended),
+                                  .converged_pass_fail    (converged_pass_fail),
+
+
+                                  .HamDist_cntr_inc_converged_valid        (HamDist_cntr_inc_converged_valid),
                                   .start                  (start),
                                   .start_int              (start_int),
                                   .valid                  (Id9ac53997afa49d1b311d681cbd804894604a5574f6121604013d48a0f15afea),
@@ -128,8 +138,8 @@ sntc_HamDist I79ee5d811322deeedd22094f4afccc245a5f792bb700d81502906922746df4ec
 
 
                                   .Ia1fce4363854ff888cff4b8e7875d600c2682390412a8cf79b37d0b11148b0fa                      (exp_syn),
-                                  .I2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881                      (syndrome),
-                                  .sum_mm                 (HamDist_syndrome),
+                                  .I2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881                      (cur_syndrome),
+                                  .sum_mm                 (HamDist_sum_mm),
 
 /* I1e4d9aa7cb1ef438f80454b61c625f0c6aed19675cb2c2f865cbd2e2c3ef2ff7 Ib8a92ab2b5e2e68fc63a575fff1d62c25ec6d30209e164d82ec85f5576d9d940 I5fedfe54fddcdc5145ac6dd38b4c3dead65f127535af2e07a7b9790515afdb04 */
                                   .clr                    (clr),
@@ -146,14 +156,14 @@ begin
        HamDist_cntr <= {SUM_LEN{1'b0}};
    end else begin
 
-       if (converged_valid) begin
+       if (HamDist_cntr_inc_converged_valid) begin
           HamDist_cntr <= HamDist_cntr + 1;
        end
 
    end
 end
 
-always_comb start_int = converged_valid;
+always_comb start_int = HamDist_cntr_inc_converged_valid;
 always_comb HamDist_loop = HamDist_cntr;
 
 `ifdef ENCRYPT
