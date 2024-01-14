@@ -89,7 +89,7 @@ reg                           clk;
 reg                           rstn;
 int                           clk_cntr;
 reg                           clr;
-reg                           start;
+reg                           start_dec;
 wire                          valid;
 wire [31:0]                   percent_probability_int;
 real                          percent_probability_real;
@@ -136,10 +136,13 @@ sntc_ldpc_decoder_wrapper i_sntc_ldpc_decoder_wrapper (
 
                                      .q0_0(q0_0),
                                      .q0_1(q0_1),
+                                     .final_y_nr_dec(final_y_nr_dec),
 
                                      .exp_syn(exp_syn),
+                                     .percent_probability_int(percent_probability_int),
+                                     .HamDist_loop_max(HamDist_loop_max),
+                                     .HamDist_loop_percentage(HamDist_loop_percentage),
 
-                                     .start(start),
                                      .HamDist_iir1           (HamDist_iir1),
                                      .HamDist_iir2           (HamDist_iir1),
                                      .HamDist_iir3           (HamDist_iir1),
@@ -147,11 +150,8 @@ sntc_ldpc_decoder_wrapper i_sntc_ldpc_decoder_wrapper (
                                      .converged_loops_ended  (converged_loops_ended),
                                      .converged_pass_fail    (converged_pass_fail),
 
-                                     .final_y_nr_dec(final_y_nr_dec),
+                                     .start_dec(start_dec),
                                      .syn_valid_cword_dec(syn_valid_cword_dec),
-                                     .percent_probability_int(percent_probability_int),
-                                     .HamDist_loop_max(HamDist_loop_max),
-                                     .HamDist_loop_percentage(HamDist_loop_percentage),
 /* verilator lint_off UNUSED */
                                      .clr(clr),
 /* verilator lint_on UNUSED */
@@ -202,7 +202,7 @@ begin
   automatic int index;
 
 
-  start                          <= 1'b0;
+  start_dec                          <= 1'b0;
   decoder_only = 0;
   repeat (1) @ (posedge rstn);
   repeat (10) @ (posedge clk);
@@ -2169,9 +2169,9 @@ begin
 
 
   repeat (4) @ (posedge clk);
-  start                          <= 1'b1;
+  start_dec                          <= 1'b1;
   repeat (1) @ (posedge clk);
-  start                          <= 1'b0;
+  start_dec                          <= 1'b0;
   repeat (num_pkts*160000) @(posedge clk);
   $display("LDPC_TB:finsh called timeout :%0d %t", timeoutfec, $time);
   repeat (timeoutfec) @(posedge clk);

@@ -82,13 +82,13 @@ reg  [SUM_LEN-1:0]            HamDist_loop_max;
 reg  [SUM_LEN-1:0]            HamDist_loop_percentage;
 wire [1:0]                    I16bdee165138010bda1229669cf4bb78831253202a69fa31552c0ac42725776a;
 wire                          I07db8da4c1a2e19e0fb67ff37bf4b2f8d5d6db2c69639497fcab892e05942ec6;
-reg                           start_int;
+reg                           Id5607445fd3e16ebe83d7d3a46b05dfe1dc8e5eed33f51f9f795fefdac3e44cf;
 wire                          Id9ac53997afa49d1b311d681cbd804894604a5574f6121604013d48a0f15afea;
 reg                           clk;
 reg                           rstn;
 int                           Ic6c882b049984e99a95e83ce05934d4d06d0825ce52525e4e6532757001dcaf7;
 reg                           clr;
-reg                           start;
+reg                           Icced28c6dc3f99c2396a5eaad732bf6b28142335892b1cd0e6af6cdb53f5ccfa;
 wire                          valid;
 wire [31:0]                   percent_probability_int;
 
@@ -204,7 +204,7 @@ begin
   automatic int Ie6490d0ed1fc22607a023c6f727a12fd688ada3cd86530d53a33472e1e6ae6df;
   automatic int Id394af78a21f8f29bdd31648d48de560f9faeed4ad0c1fa29f7e6a12efdf6f13 = 0;
 
-  start                          <= 1'b0;
+  Icced28c6dc3f99c2396a5eaad732bf6b28142335892b1cd0e6af6cdb53f5ccfa                          <= 1'b0;
   Ica16285eedd36a521c6d7d12bbea6ace858611ef6e157d84a52221b529943b79 = 0;
 
   repeat (1) @ (posedge rstn);
@@ -2716,9 +2716,9 @@ begin
 
 
   repeat (4) @ (posedge clk);
-  start                          <= 1'b1;
+  Icced28c6dc3f99c2396a5eaad732bf6b28142335892b1cd0e6af6cdb53f5ccfa                          <= 1'b1;
   repeat (1) @ (posedge clk);
-  start                          <= 1'b0;
+  Icced28c6dc3f99c2396a5eaad732bf6b28142335892b1cd0e6af6cdb53f5ccfa                          <= 1'b0;
   repeat (20) @(posedge clk);
   $display("Id69a26f56dfc4cead7151d018c424aea7b4152f95aad72fe789e4ea3d643fdd7:I2c9749f9e802d800d52c4b38776251298f8008aff69126f80e1035e350fbdaf6 I8c90cbf5d27d61f534ee012ea472714b0149ee526e43e0903ff7f07ce7ea4758 If77d1bb58da886e3cbeebbf35a0b3d217b003506792268052c6a730fbc5ec9bc :%0d %t", I132ac025db10323da7e56fc77fd857c9f0d0197a23e62b72b3b47b52aae9b32d, $time);
   repeat (20) @(posedge clk);

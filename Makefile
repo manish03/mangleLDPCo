@@ -26,3 +26,13 @@ sim_mangle_only:
 	-l vsim.log \
 	sntc_ldpc_tb -wlf dumpdir/vsim.wlf
 
+iverilog_make:
+	/cygdrive/c/iverilog/bin/iverilog.exe \
+	-g2012 \
+	-I fgallag -I flogtanh -I inc  \
+	sntc_HamDist.svp.o.sv   \
+	sntc_ldpc_decoder.svp.o.sv   \
+	sntc_ldpc_decoder_wrapper.svp.o.sv   \
+	sntc_ldpc_encoder_wrapper.svp.o.sv   \
+	sntc_ldpc_syndrome_wrapper.svp.o.sv
+	

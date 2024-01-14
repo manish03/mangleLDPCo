@@ -63,8 +63,8 @@ input wire  [SUM_LEN-1:0]            HamDist_iir1,
 input wire  [SUM_LEN-1:0]            HamDist_iir2,
 input wire  [SUM_LEN-1:0]            HamDist_iir3,
 
-input wire                           start,
-input wire                           start_int,
+input wire                           start_dec,
+input wire                           iter_start_int,
 output reg                           hamming_code_calc_out,
 /* I1e4d9aa7cb1ef438f80454b61c625f0c6aed19675cb2c2f865cbd2e2c3ef2ff7 Ib8a92ab2b5e2e68fc63a575fff1d62c25ec6d30209e164d82ec85f5576d9d940 I5fedfe54fddcdc5145ac6dd38b4c3dead65f127535af2e07a7b9790515afdb04 */
 input wire                           clr,
@@ -5433,8 +5433,8 @@ reg                           I6d0b0c1a3968ec36626f19660bedfe0a538a7835edd2a21dd
           Id34aef7affeaf78c7f4c29e3691a98e841168f86987161bc0d3906da392be76e <= 1'b0;
           Id11097cace1e3bda4cdc1e833708180e784d09c9fbea9e735a2ad96e473e9494 <= 1'b0;
        end else begin
-          I94dc663f1bd5ef375a365e9407e700bfb552748c9608227592046d149ff0ef4b <= start | start_int;
-          Ib46a5934f2d38e6813d46ec1b5be874d1f79ab6b3193199e03e39761d9af3a0b <= start | start_int;//I94dc663f1bd5ef375a365e9407e700bfb552748c9608227592046d149ff0ef4b;
+          I94dc663f1bd5ef375a365e9407e700bfb552748c9608227592046d149ff0ef4b <= start_dec | iter_start_int;
+          Ib46a5934f2d38e6813d46ec1b5be874d1f79ab6b3193199e03e39761d9af3a0b <= start_dec | iter_start_int;//I94dc663f1bd5ef375a365e9407e700bfb552748c9608227592046d149ff0ef4b;
           I2009e43b9f7d79470526e490ce29be9e5d932a3c25647eb8e903114c5696298d <= Ib46a5934f2d38e6813d46ec1b5be874d1f79ab6b3193199e03e39761d9af3a0b;
           If95958c4bb278a7461a73692815e09d6e0ade514cfbee5da62532d1e8a371458 <= I2009e43b9f7d79470526e490ce29be9e5d932a3c25647eb8e903114c5696298d;
           Ie6f0821795a2d09a9d5d9fee0deb445f74581e2f81076cf0395d62fcc7ecd5c9 <= If95958c4bb278a7461a73692815e09d6e0ade514cfbee5da62532d1e8a371458;
@@ -13566,7 +13566,7 @@ endfunction : Ie231944bb56504afd4cd4f051945212293ae680bfa7f185d00769b77d1dd196f
             I862f2564a9e7f99bc8370fe12c1a5e57612d564f1606a21f6a468d558c23fc5b[0]        <= {(MAX_SUM_WDTH_LONG  ){1'b0}};
             Ibcfba9f1fb81d976955a1fa7101f0b0db16c344c82cc5ce81f50dd3aa2928d37[0]  <= 1'b0;
        end else begin
-           if (start || Ie6f0821795a2d09a9d5d9fee0deb445f74581e2f81076cf0395d62fcc7ecd5c9) begin
+           if (start_dec || Ie6f0821795a2d09a9d5d9fee0deb445f74581e2f81076cf0395d62fcc7ecd5c9) begin
                I2dd4b198298ce92cd830c48cf8f44e52b67c0a479483f6788cb4a8ed50c0ba75  <=
                       (I96fb06aca6108479f7e21e1835a091a9060c2925cc6320c8ed71a0a0092bdeab) +
                       (Ie000dee1e3953811fe9424588b71a7dbc88f41ec69afd16e17e8fabf141c31ec) +
@@ -28110,7 +28110,7 @@ end
                   Idd909220a9540c998e23f1b06cfca187d9d83bc0673aeafbd0ed6c20c9d39f4d <= Idd909220a9540c998e23f1b06cfca187d9d83bc0673aeafbd0ed6c20c9d39f4d + 1;
               end
            end
-           else if (start) begin
+           else if (start_dec) begin
                   Idd909220a9540c998e23f1b06cfca187d9d83bc0673aeafbd0ed6c20c9d39f4d <= {(SUM_LEN){1'b0}};
            end
        end
@@ -28158,7 +28158,7 @@ end
           converged_loops_ended <= 1'b0;
           converged_pass_fail <= 1'b0;
        end else begin
-          if (start) begin
+          if (start_dec) begin
                converged_loops_ended <= 1'b0;
                converged_pass_fail <= 1'b0;
           end else begin
@@ -28176,13 +28176,13 @@ end
 
                end  //Id34aef7affeaf78c7f4c29e3691a98e841168f86987161bc0d3906da392be76e
                else begin // else I28391d3bc64ec15cbb090426b04aa6b7649c3cc85f11230bb0105e02d15e3624 Id34aef7affeaf78c7f4c29e3691a98e841168f86987161bc0d3906da392be76e
-                    //wait for Ib9776d7ddf459c9ad5b0e1d6ac61e27befb5e99fd62446677600d7cacef544d0 start to I913a4cb91be20332f3559f8070255d7ac3e6228bb423f4441551d3f783e7d4f4 I2ad8a7049d7c5511ac254f5f51fe70a046ebd884729056f0fe57f5160d467153 Ib4dc66dde806261bdda8607d8707aa727d308cd80272381a5583f63899918467
+                    //wait for Ib9776d7ddf459c9ad5b0e1d6ac61e27befb5e99fd62446677600d7cacef544d0 start_dec to I913a4cb91be20332f3559f8070255d7ac3e6228bb423f4441551d3f783e7d4f4 I2ad8a7049d7c5511ac254f5f51fe70a046ebd884729056f0fe57f5160d467153 Ib4dc66dde806261bdda8607d8707aa727d308cd80272381a5583f63899918467
                     //converged_loops_ended <= 1'b0;
                     //converged_pass_fail <= 1'b0;
                end
 
 
-          end  //start
+          end  //start_dec
        end  //rstn
    end
 
