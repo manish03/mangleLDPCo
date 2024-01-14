@@ -65,7 +65,7 @@ input wire  [SUM_LEN-1:0]            HamDist_iir3,
 
 input wire                           start,
 input wire                           start_int,
-output reg                           valid,
+output reg                           hamming_code_calc_out,
 /* I1e4d9aa7cb1ef438f80454b61c625f0c6aed19675cb2c2f865cbd2e2c3ef2ff7 Ib8a92ab2b5e2e68fc63a575fff1d62c25ec6d30209e164d82ec85f5576d9d940 I5fedfe54fddcdc5145ac6dd38b4c3dead65f127535af2e07a7b9790515afdb04 */
 input wire                           clr,
 /* I1e4d9aa7cb1ef438f80454b61c625f0c6aed19675cb2c2f865cbd2e2c3ef2ff7 I2f08a120cf6d1091827fd5d929bad0cbcaa5eff7ae0801098357ed0149cbc06e I5fedfe54fddcdc5145ac6dd38b4c3dead65f127535af2e07a7b9790515afdb04 */
@@ -28193,7 +28193,7 @@ always_comb HamDist_cntr_inc_converged_valid = I4b0c82ecfe5c4df9ab1b659484cba58f
 //I1785cfc3bc6ac7738e8b38cdccd1af12563c2b9070e07af336a1bf8c0f772b6a Ia4c3ed04a95a3da14a9d235c83d868bed7c0f45cf7f3faa751ee8f50598d2211 Ib8d31e852725afb1e26d53bab6095b2bff1749c9275be13ed1c05a56ed31ec09 valid ??
 
 always_comb I6d0b0c1a3968ec36626f19660bedfe0a538a7835edd2a21dd3f4ce0fe2c5c86b = I4b0c82ecfe5c4df9ab1b659484cba58f7d32110d375edf6450aa01ea77dde4c0;
-always_comb valid             = I6d0b0c1a3968ec36626f19660bedfe0a538a7835edd2a21dd3f4ce0fe2c5c86b;
+always_comb hamming_code_calc_out             = I6d0b0c1a3968ec36626f19660bedfe0a538a7835edd2a21dd3f4ce0fe2c5c86b;
 
 
 `ifdef ENCRYPT

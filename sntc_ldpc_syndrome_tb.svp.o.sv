@@ -42,6 +42,8 @@ parameter SUM_LEN        = 32
 
 ) (
 
+input wire clk_tb,
+input wire rstn_tb
 );
 
 `ifdef ENCRYPT
@@ -108,7 +110,7 @@ wire [NN-1:0] I7135bfe2297853b87558ec0b22b5b3e070b8df3222c1e1930a310474337762e6;
 reg [NN-MM-1:0] y_nr_in;
 reg [NN-1:0] I37998cc284c9701284a5d99b4ce25aa8641fc2fe88907f05a74a38044c7d11fd;
 
-sntc_ldpc_syndrome_wrapper I91a4661299ae4c39b62210ac04f903ca0081d0f8e0678b9b535f1f9220c022c9
+sntc_ldpc_syndrome_wrapper i_sntc_ldpc_syndrome_wrapper
 (
 
 

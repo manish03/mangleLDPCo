@@ -41,6 +41,8 @@ parameter MAX_SUM_WDTH_LONG = MAX_SUM_WDTH +1,
 parameter SUM_LEN        = 32
 
 ) (
+input wire clk_tb,
+input wire rstn_tb
 
 );
 
@@ -104,8 +106,8 @@ always_comb begin
 
 end
 
-wire valid_cword;
-wire valid_cword_dec;
+wire valid_cword_enc;
+wire syn_valid_cword_dec;
 wire [NN-1:0] y_nr_enc;
 reg [NN-MM-1:0] y_nr_in;
 reg [NN-1:0] y_nr_w_err;
@@ -118,7 +120,7 @@ sntc_ldpc_encoder_wrapper i_sntc_ldpc_encoder_wrapper (
 
                                      .y_nr_in_port(y_nr_in),
                                      .y_nr_enc(y_nr_enc),
-                                     .valid_cword(valid_cword),
+                                     .valid_cword_enc(valid_cword_enc),
 /* verilator lint_off UNUSED */
                                      .clr(clr),
 /* verilator lint_on UNUSED */
@@ -141,13 +143,12 @@ sntc_ldpc_decoder_wrapper i_sntc_ldpc_decoder_wrapper (
                                      .HamDist_iir1           (HamDist_iir1),
                                      .HamDist_iir2           (HamDist_iir1),
                                      .HamDist_iir3           (HamDist_iir1),
-                                     .valid(valid),
 
                                      .converged_loops_ended  (converged_loops_ended),
                                      .converged_pass_fail    (converged_pass_fail),
 
                                      .final_y_nr_dec(final_y_nr_dec),
-                                     .valid_cword(valid_cword_dec),
+                                     .syn_valid_cword_dec(syn_valid_cword_dec),
                                      .percent_probability_int(percent_probability_int),
                                      .HamDist_loop_max(HamDist_loop_max),
                                      .HamDist_loop_percentage(HamDist_loop_percentage),
@@ -1095,431 +1096,1055 @@ begin
      for (int i=NN-MM;i<NN;i++) begin
      end
 
-     if (~valid_cword)
+     if (~valid_cword_enc)
           $fatal (0,"Please check encoder not a valid code word");
      else
           $info ("is a valid code word");
 
 
-     num_modified = 8;
+     num_modified = 8;  // NN * p (0.0384615398943424) + 0.5
 
        err_cnt = 0;
        y_nr_w_err[0] = 1 ; //error cword
-       if (y_nr_w_err[0] != y_nr_enc[0] ) err_cnt ++;
+       if (y_nr_w_err[0] != y_nr_enc[0] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 0 );
+       end
        y_nr_w_err[1] = 1 ; //error cword
-       if (y_nr_w_err[1] != y_nr_enc[1] ) err_cnt ++;
+       if (y_nr_w_err[1] != y_nr_enc[1] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 1 );
+       end
        y_nr_w_err[2] = 0 ; //error cword
-       if (y_nr_w_err[2] != y_nr_enc[2] ) err_cnt ++;
+       if (y_nr_w_err[2] != y_nr_enc[2] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 2 );
+       end
        y_nr_w_err[3] = 1 ; //error cword
-       if (y_nr_w_err[3] != y_nr_enc[3] ) err_cnt ++;
+       if (y_nr_w_err[3] != y_nr_enc[3] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 3 );
+       end
        y_nr_w_err[4] = 0 ; //error cword
-       if (y_nr_w_err[4] != y_nr_enc[4] ) err_cnt ++;
+       if (y_nr_w_err[4] != y_nr_enc[4] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 4 );
+       end
        y_nr_w_err[5] = 0 ; //error cword
-       if (y_nr_w_err[5] != y_nr_enc[5] ) err_cnt ++;
+       if (y_nr_w_err[5] != y_nr_enc[5] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 5 );
+       end
        y_nr_w_err[6] = 0 ; //error cword
-       if (y_nr_w_err[6] != y_nr_enc[6] ) err_cnt ++;
+       if (y_nr_w_err[6] != y_nr_enc[6] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 6 );
+       end
        y_nr_w_err[7] = 0 ; //error cword
-       if (y_nr_w_err[7] != y_nr_enc[7] ) err_cnt ++;
+       if (y_nr_w_err[7] != y_nr_enc[7] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 7 );
+       end
        y_nr_w_err[8] = 0 ; //error cword
-       if (y_nr_w_err[8] != y_nr_enc[8] ) err_cnt ++;
+       if (y_nr_w_err[8] != y_nr_enc[8] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 8 );
+       end
        y_nr_w_err[9] = 1 ; //error cword
-       if (y_nr_w_err[9] != y_nr_enc[9] ) err_cnt ++;
+       if (y_nr_w_err[9] != y_nr_enc[9] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 9 );
+       end
        y_nr_w_err[10] = 1 ; //error cword
-       if (y_nr_w_err[10] != y_nr_enc[10] ) err_cnt ++;
+       if (y_nr_w_err[10] != y_nr_enc[10] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 10 );
+       end
        y_nr_w_err[11] = 1 ; //error cword
-       if (y_nr_w_err[11] != y_nr_enc[11] ) err_cnt ++;
+       if (y_nr_w_err[11] != y_nr_enc[11] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 11 );
+       end
        y_nr_w_err[12] = 1 ; //error cword
-       if (y_nr_w_err[12] != y_nr_enc[12] ) err_cnt ++;
+       if (y_nr_w_err[12] != y_nr_enc[12] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 12 );
+       end
        y_nr_w_err[13] = 1 ; //error cword
-       if (y_nr_w_err[13] != y_nr_enc[13] ) err_cnt ++;
+       if (y_nr_w_err[13] != y_nr_enc[13] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 13 );
+       end
        y_nr_w_err[14] = 0 ; //error cword
-       if (y_nr_w_err[14] != y_nr_enc[14] ) err_cnt ++;
+       if (y_nr_w_err[14] != y_nr_enc[14] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 14 );
+       end
        y_nr_w_err[15] = 1 ; //error cword
-       if (y_nr_w_err[15] != y_nr_enc[15] ) err_cnt ++;
+       if (y_nr_w_err[15] != y_nr_enc[15] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 15 );
+       end
        y_nr_w_err[16] = 0 ; //error cword
-       if (y_nr_w_err[16] != y_nr_enc[16] ) err_cnt ++;
+       if (y_nr_w_err[16] != y_nr_enc[16] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 16 );
+       end
        y_nr_w_err[17] = 0 ; //error cword
-       if (y_nr_w_err[17] != y_nr_enc[17] ) err_cnt ++;
+       if (y_nr_w_err[17] != y_nr_enc[17] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 17 );
+       end
        y_nr_w_err[18] = 1 ; //error cword
-       if (y_nr_w_err[18] != y_nr_enc[18] ) err_cnt ++;
+       if (y_nr_w_err[18] != y_nr_enc[18] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 18 );
+       end
        y_nr_w_err[19] = 0 ; //error cword
-       if (y_nr_w_err[19] != y_nr_enc[19] ) err_cnt ++;
+       if (y_nr_w_err[19] != y_nr_enc[19] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 19 );
+       end
        y_nr_w_err[20] = 1 ; //error cword
-       if (y_nr_w_err[20] != y_nr_enc[20] ) err_cnt ++;
+       if (y_nr_w_err[20] != y_nr_enc[20] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 20 );
+       end
        y_nr_w_err[21] = 1 ; //error cword
-       if (y_nr_w_err[21] != y_nr_enc[21] ) err_cnt ++;
+       if (y_nr_w_err[21] != y_nr_enc[21] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 21 );
+       end
        y_nr_w_err[22] = 0 ; //error cword
-       if (y_nr_w_err[22] != y_nr_enc[22] ) err_cnt ++;
+       if (y_nr_w_err[22] != y_nr_enc[22] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 22 );
+       end
        y_nr_w_err[23] = 0 ; //error cword
-       if (y_nr_w_err[23] != y_nr_enc[23] ) err_cnt ++;
+       if (y_nr_w_err[23] != y_nr_enc[23] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 23 );
+       end
        y_nr_w_err[24] = 0 ; //error cword
-       if (y_nr_w_err[24] != y_nr_enc[24] ) err_cnt ++;
+       if (y_nr_w_err[24] != y_nr_enc[24] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 24 );
+       end
        y_nr_w_err[25] = 1 ; //error cword
-       if (y_nr_w_err[25] != y_nr_enc[25] ) err_cnt ++;
+       if (y_nr_w_err[25] != y_nr_enc[25] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 25 );
+       end
        y_nr_w_err[26] = 1 ; //error cword
-       if (y_nr_w_err[26] != y_nr_enc[26] ) err_cnt ++;
+       if (y_nr_w_err[26] != y_nr_enc[26] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 26 );
+       end
        y_nr_w_err[27] = 0 ; //error cword
-       if (y_nr_w_err[27] != y_nr_enc[27] ) err_cnt ++;
+       if (y_nr_w_err[27] != y_nr_enc[27] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 27 );
+       end
        y_nr_w_err[28] = 0 ; //error cword
-       if (y_nr_w_err[28] != y_nr_enc[28] ) err_cnt ++;
+       if (y_nr_w_err[28] != y_nr_enc[28] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 28 );
+       end
        y_nr_w_err[29] = 1 ; //error cword
-       if (y_nr_w_err[29] != y_nr_enc[29] ) err_cnt ++;
+       if (y_nr_w_err[29] != y_nr_enc[29] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 29 );
+       end
        y_nr_w_err[30] = 1 ; //error cword
-       if (y_nr_w_err[30] != y_nr_enc[30] ) err_cnt ++;
+       if (y_nr_w_err[30] != y_nr_enc[30] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 30 );
+       end
        y_nr_w_err[31] = 1 ; //error cword
-       if (y_nr_w_err[31] != y_nr_enc[31] ) err_cnt ++;
+       if (y_nr_w_err[31] != y_nr_enc[31] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 31 );
+       end
        y_nr_w_err[32] = 0 ; //error cword
-       if (y_nr_w_err[32] != y_nr_enc[32] ) err_cnt ++;
+       if (y_nr_w_err[32] != y_nr_enc[32] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 32 );
+       end
        y_nr_w_err[33] = 0 ; //error cword
-       if (y_nr_w_err[33] != y_nr_enc[33] ) err_cnt ++;
+       if (y_nr_w_err[33] != y_nr_enc[33] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 33 );
+       end
        y_nr_w_err[34] = 1 ; //error cword
-       if (y_nr_w_err[34] != y_nr_enc[34] ) err_cnt ++;
+       if (y_nr_w_err[34] != y_nr_enc[34] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 34 );
+       end
        y_nr_w_err[35] = 0 ; //error cword
-       if (y_nr_w_err[35] != y_nr_enc[35] ) err_cnt ++;
+       if (y_nr_w_err[35] != y_nr_enc[35] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 35 );
+       end
        y_nr_w_err[36] = 0 ; //error cword
-       if (y_nr_w_err[36] != y_nr_enc[36] ) err_cnt ++;
+       if (y_nr_w_err[36] != y_nr_enc[36] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 36 );
+       end
        y_nr_w_err[37] = 0 ; //error cword
-       if (y_nr_w_err[37] != y_nr_enc[37] ) err_cnt ++;
+       if (y_nr_w_err[37] != y_nr_enc[37] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 37 );
+       end
        y_nr_w_err[38] = 0 ; //error cword
-       if (y_nr_w_err[38] != y_nr_enc[38] ) err_cnt ++;
+       if (y_nr_w_err[38] != y_nr_enc[38] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 38 );
+       end
        y_nr_w_err[39] = 0 ; //error cword
-       if (y_nr_w_err[39] != y_nr_enc[39] ) err_cnt ++;
+       if (y_nr_w_err[39] != y_nr_enc[39] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 39 );
+       end
        y_nr_w_err[40] = 1 ; //error cword
-       if (y_nr_w_err[40] != y_nr_enc[40] ) err_cnt ++;
+       if (y_nr_w_err[40] != y_nr_enc[40] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 40 );
+       end
        y_nr_w_err[41] = 0 ; //error cword
-       if (y_nr_w_err[41] != y_nr_enc[41] ) err_cnt ++;
+       if (y_nr_w_err[41] != y_nr_enc[41] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 41 );
+       end
        y_nr_w_err[42] = 0 ; //error cword
-       if (y_nr_w_err[42] != y_nr_enc[42] ) err_cnt ++;
+       if (y_nr_w_err[42] != y_nr_enc[42] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 42 );
+       end
        y_nr_w_err[43] = 1 ; //error cword
-       if (y_nr_w_err[43] != y_nr_enc[43] ) err_cnt ++;
+       if (y_nr_w_err[43] != y_nr_enc[43] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 43 );
+       end
        y_nr_w_err[44] = 1 ; //error cword
-       if (y_nr_w_err[44] != y_nr_enc[44] ) err_cnt ++;
+       if (y_nr_w_err[44] != y_nr_enc[44] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 44 );
+       end
        y_nr_w_err[45] = 1 ; //error cword
-       if (y_nr_w_err[45] != y_nr_enc[45] ) err_cnt ++;
+       if (y_nr_w_err[45] != y_nr_enc[45] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 45 );
+       end
        y_nr_w_err[46] = 1 ; //error cword
-       if (y_nr_w_err[46] != y_nr_enc[46] ) err_cnt ++;
+       if (y_nr_w_err[46] != y_nr_enc[46] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 46 );
+       end
        y_nr_w_err[47] = 0 ; //error cword
-       if (y_nr_w_err[47] != y_nr_enc[47] ) err_cnt ++;
+       if (y_nr_w_err[47] != y_nr_enc[47] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 47 );
+       end
        y_nr_w_err[48] = 0 ; //error cword
-       if (y_nr_w_err[48] != y_nr_enc[48] ) err_cnt ++;
+       if (y_nr_w_err[48] != y_nr_enc[48] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 48 );
+       end
        y_nr_w_err[49] = 1 ; //error cword
-       if (y_nr_w_err[49] != y_nr_enc[49] ) err_cnt ++;
+       if (y_nr_w_err[49] != y_nr_enc[49] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 49 );
+       end
        y_nr_w_err[50] = 1 ; //error cword
-       if (y_nr_w_err[50] != y_nr_enc[50] ) err_cnt ++;
+       if (y_nr_w_err[50] != y_nr_enc[50] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 50 );
+       end
        y_nr_w_err[51] = 0 ; //error cword
-       if (y_nr_w_err[51] != y_nr_enc[51] ) err_cnt ++;
+       if (y_nr_w_err[51] != y_nr_enc[51] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 51 );
+       end
        y_nr_w_err[52] = 1 ; //error cword
-       if (y_nr_w_err[52] != y_nr_enc[52] ) err_cnt ++;
+       if (y_nr_w_err[52] != y_nr_enc[52] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 52 );
+       end
        y_nr_w_err[53] = 1 ; //error cword
-       if (y_nr_w_err[53] != y_nr_enc[53] ) err_cnt ++;
+       if (y_nr_w_err[53] != y_nr_enc[53] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 53 );
+       end
        y_nr_w_err[54] = 0 ; //error cword
-       if (y_nr_w_err[54] != y_nr_enc[54] ) err_cnt ++;
+       if (y_nr_w_err[54] != y_nr_enc[54] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 54 );
+       end
        y_nr_w_err[55] = 1 ; //error cword
-       if (y_nr_w_err[55] != y_nr_enc[55] ) err_cnt ++;
+       if (y_nr_w_err[55] != y_nr_enc[55] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 55 );
+       end
        y_nr_w_err[56] = 1 ; //error cword
-       if (y_nr_w_err[56] != y_nr_enc[56] ) err_cnt ++;
+       if (y_nr_w_err[56] != y_nr_enc[56] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 56 );
+       end
        y_nr_w_err[57] = 0 ; //error cword
-       if (y_nr_w_err[57] != y_nr_enc[57] ) err_cnt ++;
+       if (y_nr_w_err[57] != y_nr_enc[57] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 57 );
+       end
        y_nr_w_err[58] = 0 ; //error cword
-       if (y_nr_w_err[58] != y_nr_enc[58] ) err_cnt ++;
+       if (y_nr_w_err[58] != y_nr_enc[58] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 58 );
+       end
        y_nr_w_err[59] = 1 ; //error cword
-       if (y_nr_w_err[59] != y_nr_enc[59] ) err_cnt ++;
+       if (y_nr_w_err[59] != y_nr_enc[59] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 59 );
+       end
        y_nr_w_err[60] = 0 ; //error cword
-       if (y_nr_w_err[60] != y_nr_enc[60] ) err_cnt ++;
+       if (y_nr_w_err[60] != y_nr_enc[60] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 60 );
+       end
        y_nr_w_err[61] = 0 ; //error cword
-       if (y_nr_w_err[61] != y_nr_enc[61] ) err_cnt ++;
+       if (y_nr_w_err[61] != y_nr_enc[61] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 61 );
+       end
        y_nr_w_err[62] = 0 ; //error cword
-       if (y_nr_w_err[62] != y_nr_enc[62] ) err_cnt ++;
+       if (y_nr_w_err[62] != y_nr_enc[62] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 62 );
+       end
        y_nr_w_err[63] = 1 ; //error cword
-       if (y_nr_w_err[63] != y_nr_enc[63] ) err_cnt ++;
+       if (y_nr_w_err[63] != y_nr_enc[63] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 63 );
+       end
        y_nr_w_err[64] = 0 ; //error cword
-       if (y_nr_w_err[64] != y_nr_enc[64] ) err_cnt ++;
+       if (y_nr_w_err[64] != y_nr_enc[64] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 64 );
+       end
        y_nr_w_err[65] = 1 ; //error cword
-       if (y_nr_w_err[65] != y_nr_enc[65] ) err_cnt ++;
+       if (y_nr_w_err[65] != y_nr_enc[65] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 65 );
+       end
        y_nr_w_err[66] = 1 ; //error cword
-       if (y_nr_w_err[66] != y_nr_enc[66] ) err_cnt ++;
+       if (y_nr_w_err[66] != y_nr_enc[66] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 66 );
+       end
        y_nr_w_err[67] = 1 ; //error cword
-       if (y_nr_w_err[67] != y_nr_enc[67] ) err_cnt ++;
+       if (y_nr_w_err[67] != y_nr_enc[67] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 67 );
+       end
        y_nr_w_err[68] = 1 ; //error cword
-       if (y_nr_w_err[68] != y_nr_enc[68] ) err_cnt ++;
+       if (y_nr_w_err[68] != y_nr_enc[68] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 68 );
+       end
        y_nr_w_err[69] = 1 ; //error cword
-       if (y_nr_w_err[69] != y_nr_enc[69] ) err_cnt ++;
+       if (y_nr_w_err[69] != y_nr_enc[69] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 69 );
+       end
        y_nr_w_err[70] = 1 ; //error cword
-       if (y_nr_w_err[70] != y_nr_enc[70] ) err_cnt ++;
+       if (y_nr_w_err[70] != y_nr_enc[70] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 70 );
+       end
        y_nr_w_err[71] = 1 ; //error cword
-       if (y_nr_w_err[71] != y_nr_enc[71] ) err_cnt ++;
+       if (y_nr_w_err[71] != y_nr_enc[71] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 71 );
+       end
        y_nr_w_err[72] = 0 ; //error cword
-       if (y_nr_w_err[72] != y_nr_enc[72] ) err_cnt ++;
+       if (y_nr_w_err[72] != y_nr_enc[72] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 72 );
+       end
        y_nr_w_err[73] = 0 ; //error cword
-       if (y_nr_w_err[73] != y_nr_enc[73] ) err_cnt ++;
+       if (y_nr_w_err[73] != y_nr_enc[73] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 73 );
+       end
        y_nr_w_err[74] = 1 ; //error cword
-       if (y_nr_w_err[74] != y_nr_enc[74] ) err_cnt ++;
+       if (y_nr_w_err[74] != y_nr_enc[74] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 74 );
+       end
        y_nr_w_err[75] = 0 ; //error cword
-       if (y_nr_w_err[75] != y_nr_enc[75] ) err_cnt ++;
+       if (y_nr_w_err[75] != y_nr_enc[75] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 75 );
+       end
        y_nr_w_err[76] = 0 ; //error cword
-       if (y_nr_w_err[76] != y_nr_enc[76] ) err_cnt ++;
+       if (y_nr_w_err[76] != y_nr_enc[76] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 76 );
+       end
        y_nr_w_err[77] = 0 ; //error cword
-       if (y_nr_w_err[77] != y_nr_enc[77] ) err_cnt ++;
+       if (y_nr_w_err[77] != y_nr_enc[77] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 77 );
+       end
        y_nr_w_err[78] = 0 ; //error cword
-       if (y_nr_w_err[78] != y_nr_enc[78] ) err_cnt ++;
+       if (y_nr_w_err[78] != y_nr_enc[78] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 78 );
+       end
        y_nr_w_err[79] = 0 ; //error cword
-       if (y_nr_w_err[79] != y_nr_enc[79] ) err_cnt ++;
+       if (y_nr_w_err[79] != y_nr_enc[79] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 79 );
+       end
        y_nr_w_err[80] = 0 ; //error cword
-       if (y_nr_w_err[80] != y_nr_enc[80] ) err_cnt ++;
+       if (y_nr_w_err[80] != y_nr_enc[80] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 80 );
+       end
        y_nr_w_err[81] = 1 ; //error cword
-       if (y_nr_w_err[81] != y_nr_enc[81] ) err_cnt ++;
+       if (y_nr_w_err[81] != y_nr_enc[81] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 81 );
+       end
        y_nr_w_err[82] = 1 ; //error cword
-       if (y_nr_w_err[82] != y_nr_enc[82] ) err_cnt ++;
+       if (y_nr_w_err[82] != y_nr_enc[82] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 82 );
+       end
        y_nr_w_err[83] = 0 ; //error cword
-       if (y_nr_w_err[83] != y_nr_enc[83] ) err_cnt ++;
+       if (y_nr_w_err[83] != y_nr_enc[83] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 83 );
+       end
        y_nr_w_err[84] = 0 ; //error cword
-       if (y_nr_w_err[84] != y_nr_enc[84] ) err_cnt ++;
+       if (y_nr_w_err[84] != y_nr_enc[84] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 84 );
+       end
        y_nr_w_err[85] = 0 ; //error cword
-       if (y_nr_w_err[85] != y_nr_enc[85] ) err_cnt ++;
+       if (y_nr_w_err[85] != y_nr_enc[85] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 85 );
+       end
        y_nr_w_err[86] = 0 ; //error cword
-       if (y_nr_w_err[86] != y_nr_enc[86] ) err_cnt ++;
+       if (y_nr_w_err[86] != y_nr_enc[86] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 86 );
+       end
        y_nr_w_err[87] = 0 ; //error cword
-       if (y_nr_w_err[87] != y_nr_enc[87] ) err_cnt ++;
+       if (y_nr_w_err[87] != y_nr_enc[87] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 87 );
+       end
        y_nr_w_err[88] = 0 ; //error cword
-       if (y_nr_w_err[88] != y_nr_enc[88] ) err_cnt ++;
+       if (y_nr_w_err[88] != y_nr_enc[88] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 88 );
+       end
        y_nr_w_err[89] = 1 ; //error cword
-       if (y_nr_w_err[89] != y_nr_enc[89] ) err_cnt ++;
+       if (y_nr_w_err[89] != y_nr_enc[89] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 89 );
+       end
        y_nr_w_err[90] = 0 ; //error cword
-       if (y_nr_w_err[90] != y_nr_enc[90] ) err_cnt ++;
+       if (y_nr_w_err[90] != y_nr_enc[90] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 90 );
+       end
        y_nr_w_err[91] = 1 ; //error cword
-       if (y_nr_w_err[91] != y_nr_enc[91] ) err_cnt ++;
+       if (y_nr_w_err[91] != y_nr_enc[91] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 91 );
+       end
        y_nr_w_err[92] = 0 ; //error cword
-       if (y_nr_w_err[92] != y_nr_enc[92] ) err_cnt ++;
+       if (y_nr_w_err[92] != y_nr_enc[92] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 92 );
+       end
        y_nr_w_err[93] = 0 ; //error cword
-       if (y_nr_w_err[93] != y_nr_enc[93] ) err_cnt ++;
+       if (y_nr_w_err[93] != y_nr_enc[93] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 93 );
+       end
        y_nr_w_err[94] = 0 ; //error cword
-       if (y_nr_w_err[94] != y_nr_enc[94] ) err_cnt ++;
+       if (y_nr_w_err[94] != y_nr_enc[94] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 94 );
+       end
        y_nr_w_err[95] = 0 ; //error cword
-       if (y_nr_w_err[95] != y_nr_enc[95] ) err_cnt ++;
+       if (y_nr_w_err[95] != y_nr_enc[95] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 95 );
+       end
        y_nr_w_err[96] = 0 ; //error cword
-       if (y_nr_w_err[96] != y_nr_enc[96] ) err_cnt ++;
+       if (y_nr_w_err[96] != y_nr_enc[96] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 96 );
+       end
        y_nr_w_err[97] = 0 ; //error cword
-       if (y_nr_w_err[97] != y_nr_enc[97] ) err_cnt ++;
+       if (y_nr_w_err[97] != y_nr_enc[97] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 97 );
+       end
        y_nr_w_err[98] = 0 ; //error cword
-       if (y_nr_w_err[98] != y_nr_enc[98] ) err_cnt ++;
+       if (y_nr_w_err[98] != y_nr_enc[98] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 98 );
+       end
        y_nr_w_err[99] = 0 ; //error cword
-       if (y_nr_w_err[99] != y_nr_enc[99] ) err_cnt ++;
+       if (y_nr_w_err[99] != y_nr_enc[99] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 99 );
+       end
        y_nr_w_err[100] = 1 ; //error cword
-       if (y_nr_w_err[100] != y_nr_enc[100] ) err_cnt ++;
+       if (y_nr_w_err[100] != y_nr_enc[100] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 100 );
+       end
        y_nr_w_err[101] = 1 ; //error cword
-       if (y_nr_w_err[101] != y_nr_enc[101] ) err_cnt ++;
+       if (y_nr_w_err[101] != y_nr_enc[101] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 101 );
+       end
        y_nr_w_err[102] = 1 ; //error cword
-       if (y_nr_w_err[102] != y_nr_enc[102] ) err_cnt ++;
+       if (y_nr_w_err[102] != y_nr_enc[102] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 102 );
+       end
        y_nr_w_err[103] = 1 ; //error cword
-       if (y_nr_w_err[103] != y_nr_enc[103] ) err_cnt ++;
+       if (y_nr_w_err[103] != y_nr_enc[103] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 103 );
+       end
        y_nr_w_err[104] = 0 ; //error cword
-       if (y_nr_w_err[104] != y_nr_enc[104] ) err_cnt ++;
+       if (y_nr_w_err[104] != y_nr_enc[104] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 104 );
+       end
        y_nr_w_err[105] = 1 ; //error cword
-       if (y_nr_w_err[105] != y_nr_enc[105] ) err_cnt ++;
+       if (y_nr_w_err[105] != y_nr_enc[105] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 105 );
+       end
        y_nr_w_err[106] = 1 ; //error cword
-       if (y_nr_w_err[106] != y_nr_enc[106] ) err_cnt ++;
+       if (y_nr_w_err[106] != y_nr_enc[106] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 106 );
+       end
        y_nr_w_err[107] = 1 ; //error cword
-       if (y_nr_w_err[107] != y_nr_enc[107] ) err_cnt ++;
+       if (y_nr_w_err[107] != y_nr_enc[107] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 107 );
+       end
        y_nr_w_err[108] = 0 ; //error cword
-       if (y_nr_w_err[108] != y_nr_enc[108] ) err_cnt ++;
+       if (y_nr_w_err[108] != y_nr_enc[108] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 108 );
+       end
        y_nr_w_err[109] = 0 ; //error cword
-       if (y_nr_w_err[109] != y_nr_enc[109] ) err_cnt ++;
+       if (y_nr_w_err[109] != y_nr_enc[109] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 109 );
+       end
        y_nr_w_err[110] = 0 ; //error cword
-       if (y_nr_w_err[110] != y_nr_enc[110] ) err_cnt ++;
+       if (y_nr_w_err[110] != y_nr_enc[110] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 110 );
+       end
        y_nr_w_err[111] = 1 ; //error cword
-       if (y_nr_w_err[111] != y_nr_enc[111] ) err_cnt ++;
+       if (y_nr_w_err[111] != y_nr_enc[111] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 111 );
+       end
        y_nr_w_err[112] = 1 ; //error cword
-       if (y_nr_w_err[112] != y_nr_enc[112] ) err_cnt ++;
+       if (y_nr_w_err[112] != y_nr_enc[112] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 112 );
+       end
        y_nr_w_err[113] = 0 ; //error cword
-       if (y_nr_w_err[113] != y_nr_enc[113] ) err_cnt ++;
+       if (y_nr_w_err[113] != y_nr_enc[113] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 113 );
+       end
        y_nr_w_err[114] = 0 ; //error cword
-       if (y_nr_w_err[114] != y_nr_enc[114] ) err_cnt ++;
+       if (y_nr_w_err[114] != y_nr_enc[114] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 114 );
+       end
        y_nr_w_err[115] = 1 ; //error cword
-       if (y_nr_w_err[115] != y_nr_enc[115] ) err_cnt ++;
+       if (y_nr_w_err[115] != y_nr_enc[115] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 115 );
+       end
        y_nr_w_err[116] = 1 ; //error cword
-       if (y_nr_w_err[116] != y_nr_enc[116] ) err_cnt ++;
+       if (y_nr_w_err[116] != y_nr_enc[116] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 116 );
+       end
        y_nr_w_err[117] = 1 ; //error cword
-       if (y_nr_w_err[117] != y_nr_enc[117] ) err_cnt ++;
+       if (y_nr_w_err[117] != y_nr_enc[117] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 117 );
+       end
        y_nr_w_err[118] = 1 ; //error cword
-       if (y_nr_w_err[118] != y_nr_enc[118] ) err_cnt ++;
+       if (y_nr_w_err[118] != y_nr_enc[118] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 118 );
+       end
        y_nr_w_err[119] = 0 ; //error cword
-       if (y_nr_w_err[119] != y_nr_enc[119] ) err_cnt ++;
+       if (y_nr_w_err[119] != y_nr_enc[119] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 119 );
+       end
        y_nr_w_err[120] = 1 ; //error cword
-       if (y_nr_w_err[120] != y_nr_enc[120] ) err_cnt ++;
+       if (y_nr_w_err[120] != y_nr_enc[120] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 120 );
+       end
        y_nr_w_err[121] = 0 ; //error cword
-       if (y_nr_w_err[121] != y_nr_enc[121] ) err_cnt ++;
+       if (y_nr_w_err[121] != y_nr_enc[121] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 121 );
+       end
        y_nr_w_err[122] = 0 ; //error cword
-       if (y_nr_w_err[122] != y_nr_enc[122] ) err_cnt ++;
+       if (y_nr_w_err[122] != y_nr_enc[122] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 122 );
+       end
        y_nr_w_err[123] = 1 ; //error cword
-       if (y_nr_w_err[123] != y_nr_enc[123] ) err_cnt ++;
+       if (y_nr_w_err[123] != y_nr_enc[123] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 123 );
+       end
        y_nr_w_err[124] = 0 ; //error cword
-       if (y_nr_w_err[124] != y_nr_enc[124] ) err_cnt ++;
+       if (y_nr_w_err[124] != y_nr_enc[124] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 124 );
+       end
        y_nr_w_err[125] = 0 ; //error cword
-       if (y_nr_w_err[125] != y_nr_enc[125] ) err_cnt ++;
+       if (y_nr_w_err[125] != y_nr_enc[125] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 125 );
+       end
        y_nr_w_err[126] = 1 ; //error cword
-       if (y_nr_w_err[126] != y_nr_enc[126] ) err_cnt ++;
+       if (y_nr_w_err[126] != y_nr_enc[126] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 126 );
+       end
        y_nr_w_err[127] = 1 ; //error cword
-       if (y_nr_w_err[127] != y_nr_enc[127] ) err_cnt ++;
+       if (y_nr_w_err[127] != y_nr_enc[127] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 127 );
+       end
        y_nr_w_err[128] = 1 ; //error cword
-       if (y_nr_w_err[128] != y_nr_enc[128] ) err_cnt ++;
+       if (y_nr_w_err[128] != y_nr_enc[128] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 128 );
+       end
        y_nr_w_err[129] = 0 ; //error cword
-       if (y_nr_w_err[129] != y_nr_enc[129] ) err_cnt ++;
+       if (y_nr_w_err[129] != y_nr_enc[129] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 129 );
+       end
        y_nr_w_err[130] = 1 ; //error cword
-       if (y_nr_w_err[130] != y_nr_enc[130] ) err_cnt ++;
+       if (y_nr_w_err[130] != y_nr_enc[130] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 130 );
+       end
        y_nr_w_err[131] = 0 ; //error cword
-       if (y_nr_w_err[131] != y_nr_enc[131] ) err_cnt ++;
+       if (y_nr_w_err[131] != y_nr_enc[131] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 131 );
+       end
        y_nr_w_err[132] = 0 ; //error cword
-       if (y_nr_w_err[132] != y_nr_enc[132] ) err_cnt ++;
+       if (y_nr_w_err[132] != y_nr_enc[132] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 132 );
+       end
        y_nr_w_err[133] = 0 ; //error cword
-       if (y_nr_w_err[133] != y_nr_enc[133] ) err_cnt ++;
+       if (y_nr_w_err[133] != y_nr_enc[133] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 133 );
+       end
        y_nr_w_err[134] = 1 ; //error cword
-       if (y_nr_w_err[134] != y_nr_enc[134] ) err_cnt ++;
+       if (y_nr_w_err[134] != y_nr_enc[134] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 134 );
+       end
        y_nr_w_err[135] = 1 ; //error cword
-       if (y_nr_w_err[135] != y_nr_enc[135] ) err_cnt ++;
+       if (y_nr_w_err[135] != y_nr_enc[135] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 135 );
+       end
        y_nr_w_err[136] = 1 ; //error cword
-       if (y_nr_w_err[136] != y_nr_enc[136] ) err_cnt ++;
+       if (y_nr_w_err[136] != y_nr_enc[136] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 136 );
+       end
        y_nr_w_err[137] = 0 ; //error cword
-       if (y_nr_w_err[137] != y_nr_enc[137] ) err_cnt ++;
+       if (y_nr_w_err[137] != y_nr_enc[137] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 137 );
+       end
        y_nr_w_err[138] = 1 ; //error cword
-       if (y_nr_w_err[138] != y_nr_enc[138] ) err_cnt ++;
+       if (y_nr_w_err[138] != y_nr_enc[138] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 138 );
+       end
        y_nr_w_err[139] = 1 ; //error cword
-       if (y_nr_w_err[139] != y_nr_enc[139] ) err_cnt ++;
+       if (y_nr_w_err[139] != y_nr_enc[139] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 139 );
+       end
        y_nr_w_err[140] = 1 ; //error cword
-       if (y_nr_w_err[140] != y_nr_enc[140] ) err_cnt ++;
+       if (y_nr_w_err[140] != y_nr_enc[140] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 140 );
+       end
        y_nr_w_err[141] = 0 ; //error cword
-       if (y_nr_w_err[141] != y_nr_enc[141] ) err_cnt ++;
+       if (y_nr_w_err[141] != y_nr_enc[141] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 141 );
+       end
        y_nr_w_err[142] = 0 ; //error cword
-       if (y_nr_w_err[142] != y_nr_enc[142] ) err_cnt ++;
+       if (y_nr_w_err[142] != y_nr_enc[142] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 142 );
+       end
        y_nr_w_err[143] = 1 ; //error cword
-       if (y_nr_w_err[143] != y_nr_enc[143] ) err_cnt ++;
+       if (y_nr_w_err[143] != y_nr_enc[143] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 143 );
+       end
        y_nr_w_err[144] = 0 ; //error cword
-       if (y_nr_w_err[144] != y_nr_enc[144] ) err_cnt ++;
+       if (y_nr_w_err[144] != y_nr_enc[144] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 144 );
+       end
        y_nr_w_err[145] = 1 ; //error cword
-       if (y_nr_w_err[145] != y_nr_enc[145] ) err_cnt ++;
+       if (y_nr_w_err[145] != y_nr_enc[145] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 145 );
+       end
        y_nr_w_err[146] = 0 ; //error cword
-       if (y_nr_w_err[146] != y_nr_enc[146] ) err_cnt ++;
+       if (y_nr_w_err[146] != y_nr_enc[146] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 146 );
+       end
        y_nr_w_err[147] = 1 ; //error cword
-       if (y_nr_w_err[147] != y_nr_enc[147] ) err_cnt ++;
+       if (y_nr_w_err[147] != y_nr_enc[147] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 147 );
+       end
        y_nr_w_err[148] = 1 ; //error cword
-       if (y_nr_w_err[148] != y_nr_enc[148] ) err_cnt ++;
+       if (y_nr_w_err[148] != y_nr_enc[148] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 148 );
+       end
        y_nr_w_err[149] = 1 ; //error cword
-       if (y_nr_w_err[149] != y_nr_enc[149] ) err_cnt ++;
+       if (y_nr_w_err[149] != y_nr_enc[149] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 149 );
+       end
        y_nr_w_err[150] = 1 ; //error cword
-       if (y_nr_w_err[150] != y_nr_enc[150] ) err_cnt ++;
+       if (y_nr_w_err[150] != y_nr_enc[150] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 150 );
+       end
        y_nr_w_err[151] = 0 ; //error cword
-       if (y_nr_w_err[151] != y_nr_enc[151] ) err_cnt ++;
+       if (y_nr_w_err[151] != y_nr_enc[151] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 151 );
+       end
        y_nr_w_err[152] = 1 ; //error cword
-       if (y_nr_w_err[152] != y_nr_enc[152] ) err_cnt ++;
+       if (y_nr_w_err[152] != y_nr_enc[152] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 152 );
+       end
        y_nr_w_err[153] = 0 ; //error cword
-       if (y_nr_w_err[153] != y_nr_enc[153] ) err_cnt ++;
+       if (y_nr_w_err[153] != y_nr_enc[153] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 153 );
+       end
        y_nr_w_err[154] = 0 ; //error cword
-       if (y_nr_w_err[154] != y_nr_enc[154] ) err_cnt ++;
+       if (y_nr_w_err[154] != y_nr_enc[154] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 154 );
+       end
        y_nr_w_err[155] = 0 ; //error cword
-       if (y_nr_w_err[155] != y_nr_enc[155] ) err_cnt ++;
+       if (y_nr_w_err[155] != y_nr_enc[155] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 155 );
+       end
        y_nr_w_err[156] = 0 ; //error cword
-       if (y_nr_w_err[156] != y_nr_enc[156] ) err_cnt ++;
+       if (y_nr_w_err[156] != y_nr_enc[156] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 156 );
+       end
        y_nr_w_err[157] = 1 ; //error cword
-       if (y_nr_w_err[157] != y_nr_enc[157] ) err_cnt ++;
+       if (y_nr_w_err[157] != y_nr_enc[157] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 157 );
+       end
        y_nr_w_err[158] = 0 ; //error cword
-       if (y_nr_w_err[158] != y_nr_enc[158] ) err_cnt ++;
+       if (y_nr_w_err[158] != y_nr_enc[158] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 158 );
+       end
        y_nr_w_err[159] = 1 ; //error cword
-       if (y_nr_w_err[159] != y_nr_enc[159] ) err_cnt ++;
+       if (y_nr_w_err[159] != y_nr_enc[159] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 159 );
+       end
        y_nr_w_err[160] = 1 ; //error cword
-       if (y_nr_w_err[160] != y_nr_enc[160] ) err_cnt ++;
+       if (y_nr_w_err[160] != y_nr_enc[160] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 160 );
+       end
        y_nr_w_err[161] = 0 ; //error cword
-       if (y_nr_w_err[161] != y_nr_enc[161] ) err_cnt ++;
+       if (y_nr_w_err[161] != y_nr_enc[161] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 161 );
+       end
        y_nr_w_err[162] = 0 ; //error cword
-       if (y_nr_w_err[162] != y_nr_enc[162] ) err_cnt ++;
+       if (y_nr_w_err[162] != y_nr_enc[162] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 162 );
+       end
        y_nr_w_err[163] = 1 ; //error cword
-       if (y_nr_w_err[163] != y_nr_enc[163] ) err_cnt ++;
+       if (y_nr_w_err[163] != y_nr_enc[163] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 163 );
+       end
        y_nr_w_err[164] = 0 ; //error cword
-       if (y_nr_w_err[164] != y_nr_enc[164] ) err_cnt ++;
+       if (y_nr_w_err[164] != y_nr_enc[164] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 164 );
+       end
        y_nr_w_err[165] = 0 ; //error cword
-       if (y_nr_w_err[165] != y_nr_enc[165] ) err_cnt ++;
+       if (y_nr_w_err[165] != y_nr_enc[165] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 165 );
+       end
        y_nr_w_err[166] = 1 ; //error cword
-       if (y_nr_w_err[166] != y_nr_enc[166] ) err_cnt ++;
+       if (y_nr_w_err[166] != y_nr_enc[166] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 166 );
+       end
        y_nr_w_err[167] = 1 ; //error cword
-       if (y_nr_w_err[167] != y_nr_enc[167] ) err_cnt ++;
+       if (y_nr_w_err[167] != y_nr_enc[167] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 167 );
+       end
        y_nr_w_err[168] = 0 ; //error cword
-       if (y_nr_w_err[168] != y_nr_enc[168] ) err_cnt ++;
+       if (y_nr_w_err[168] != y_nr_enc[168] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 168 );
+       end
        y_nr_w_err[169] = 0 ; //error cword
-       if (y_nr_w_err[169] != y_nr_enc[169] ) err_cnt ++;
+       if (y_nr_w_err[169] != y_nr_enc[169] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 169 );
+       end
        y_nr_w_err[170] = 1 ; //error cword
-       if (y_nr_w_err[170] != y_nr_enc[170] ) err_cnt ++;
+       if (y_nr_w_err[170] != y_nr_enc[170] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 170 );
+       end
        y_nr_w_err[171] = 0 ; //error cword
-       if (y_nr_w_err[171] != y_nr_enc[171] ) err_cnt ++;
+       if (y_nr_w_err[171] != y_nr_enc[171] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 171 );
+       end
        y_nr_w_err[172] = 1 ; //error cword
-       if (y_nr_w_err[172] != y_nr_enc[172] ) err_cnt ++;
+       if (y_nr_w_err[172] != y_nr_enc[172] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 172 );
+       end
        y_nr_w_err[173] = 1 ; //error cword
-       if (y_nr_w_err[173] != y_nr_enc[173] ) err_cnt ++;
+       if (y_nr_w_err[173] != y_nr_enc[173] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 173 );
+       end
        y_nr_w_err[174] = 0 ; //error cword
-       if (y_nr_w_err[174] != y_nr_enc[174] ) err_cnt ++;
+       if (y_nr_w_err[174] != y_nr_enc[174] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 174 );
+       end
        y_nr_w_err[175] = 0 ; //error cword
-       if (y_nr_w_err[175] != y_nr_enc[175] ) err_cnt ++;
+       if (y_nr_w_err[175] != y_nr_enc[175] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 175 );
+       end
        y_nr_w_err[176] = 1 ; //error cword
-       if (y_nr_w_err[176] != y_nr_enc[176] ) err_cnt ++;
+       if (y_nr_w_err[176] != y_nr_enc[176] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 176 );
+       end
        y_nr_w_err[177] = 0 ; //error cword
-       if (y_nr_w_err[177] != y_nr_enc[177] ) err_cnt ++;
+       if (y_nr_w_err[177] != y_nr_enc[177] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 177 );
+       end
        y_nr_w_err[178] = 1 ; //error cword
-       if (y_nr_w_err[178] != y_nr_enc[178] ) err_cnt ++;
+       if (y_nr_w_err[178] != y_nr_enc[178] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 178 );
+       end
        y_nr_w_err[179] = 1 ; //error cword
-       if (y_nr_w_err[179] != y_nr_enc[179] ) err_cnt ++;
+       if (y_nr_w_err[179] != y_nr_enc[179] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 179 );
+       end
        y_nr_w_err[180] = 1 ; //error cword
-       if (y_nr_w_err[180] != y_nr_enc[180] ) err_cnt ++;
+       if (y_nr_w_err[180] != y_nr_enc[180] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 180 );
+       end
        y_nr_w_err[181] = 0 ; //error cword
-       if (y_nr_w_err[181] != y_nr_enc[181] ) err_cnt ++;
+       if (y_nr_w_err[181] != y_nr_enc[181] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 181 );
+       end
        y_nr_w_err[182] = 1 ; //error cword
-       if (y_nr_w_err[182] != y_nr_enc[182] ) err_cnt ++;
+       if (y_nr_w_err[182] != y_nr_enc[182] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 182 );
+       end
        y_nr_w_err[183] = 1 ; //error cword
-       if (y_nr_w_err[183] != y_nr_enc[183] ) err_cnt ++;
+       if (y_nr_w_err[183] != y_nr_enc[183] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 183 );
+       end
        y_nr_w_err[184] = 1 ; //error cword
-       if (y_nr_w_err[184] != y_nr_enc[184] ) err_cnt ++;
+       if (y_nr_w_err[184] != y_nr_enc[184] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 184 );
+       end
        y_nr_w_err[185] = 1 ; //error cword
-       if (y_nr_w_err[185] != y_nr_enc[185] ) err_cnt ++;
+       if (y_nr_w_err[185] != y_nr_enc[185] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 185 );
+       end
        y_nr_w_err[186] = 0 ; //error cword
-       if (y_nr_w_err[186] != y_nr_enc[186] ) err_cnt ++;
+       if (y_nr_w_err[186] != y_nr_enc[186] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 186 );
+       end
        y_nr_w_err[187] = 1 ; //error cword
-       if (y_nr_w_err[187] != y_nr_enc[187] ) err_cnt ++;
+       if (y_nr_w_err[187] != y_nr_enc[187] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 187 );
+       end
        y_nr_w_err[188] = 0 ; //error cword
-       if (y_nr_w_err[188] != y_nr_enc[188] ) err_cnt ++;
+       if (y_nr_w_err[188] != y_nr_enc[188] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 188 );
+       end
        y_nr_w_err[189] = 0 ; //error cword
-       if (y_nr_w_err[189] != y_nr_enc[189] ) err_cnt ++;
+       if (y_nr_w_err[189] != y_nr_enc[189] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 189 );
+       end
        y_nr_w_err[190] = 0 ; //error cword
-       if (y_nr_w_err[190] != y_nr_enc[190] ) err_cnt ++;
+       if (y_nr_w_err[190] != y_nr_enc[190] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 190 );
+       end
        y_nr_w_err[191] = 0 ; //error cword
-       if (y_nr_w_err[191] != y_nr_enc[191] ) err_cnt ++;
+       if (y_nr_w_err[191] != y_nr_enc[191] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 191 );
+       end
        y_nr_w_err[192] = 1 ; //error cword
-       if (y_nr_w_err[192] != y_nr_enc[192] ) err_cnt ++;
+       if (y_nr_w_err[192] != y_nr_enc[192] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 192 );
+       end
        y_nr_w_err[193] = 0 ; //error cword
-       if (y_nr_w_err[193] != y_nr_enc[193] ) err_cnt ++;
+       if (y_nr_w_err[193] != y_nr_enc[193] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 193 );
+       end
        y_nr_w_err[194] = 0 ; //error cword
-       if (y_nr_w_err[194] != y_nr_enc[194] ) err_cnt ++;
+       if (y_nr_w_err[194] != y_nr_enc[194] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 194 );
+       end
        y_nr_w_err[195] = 0 ; //error cword
-       if (y_nr_w_err[195] != y_nr_enc[195] ) err_cnt ++;
+       if (y_nr_w_err[195] != y_nr_enc[195] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 195 );
+       end
        y_nr_w_err[196] = 0 ; //error cword
-       if (y_nr_w_err[196] != y_nr_enc[196] ) err_cnt ++;
+       if (y_nr_w_err[196] != y_nr_enc[196] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 196 );
+       end
        y_nr_w_err[197] = 0 ; //error cword
-       if (y_nr_w_err[197] != y_nr_enc[197] ) err_cnt ++;
+       if (y_nr_w_err[197] != y_nr_enc[197] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 197 );
+       end
        y_nr_w_err[198] = 0 ; //error cword
-       if (y_nr_w_err[198] != y_nr_enc[198] ) err_cnt ++;
+       if (y_nr_w_err[198] != y_nr_enc[198] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 198 );
+       end
        y_nr_w_err[199] = 0 ; //error cword
-       if (y_nr_w_err[199] != y_nr_enc[199] ) err_cnt ++;
+       if (y_nr_w_err[199] != y_nr_enc[199] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 199 );
+       end
        y_nr_w_err[200] = 0 ; //error cword
-       if (y_nr_w_err[200] != y_nr_enc[200] ) err_cnt ++;
+       if (y_nr_w_err[200] != y_nr_enc[200] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 200 );
+       end
        y_nr_w_err[201] = 0 ; //error cword
-       if (y_nr_w_err[201] != y_nr_enc[201] ) err_cnt ++;
+       if (y_nr_w_err[201] != y_nr_enc[201] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 201 );
+       end
        y_nr_w_err[202] = 1 ; //error cword
-       if (y_nr_w_err[202] != y_nr_enc[202] ) err_cnt ++;
+       if (y_nr_w_err[202] != y_nr_enc[202] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 202 );
+       end
        y_nr_w_err[203] = 0 ; //error cword
-       if (y_nr_w_err[203] != y_nr_enc[203] ) err_cnt ++;
+       if (y_nr_w_err[203] != y_nr_enc[203] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 203 );
+       end
        y_nr_w_err[204] = 0 ; //error cword
-       if (y_nr_w_err[204] != y_nr_enc[204] ) err_cnt ++;
+       if (y_nr_w_err[204] != y_nr_enc[204] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 204 );
+       end
        y_nr_w_err[205] = 0 ; //error cword
-       if (y_nr_w_err[205] != y_nr_enc[205] ) err_cnt ++;
+       if (y_nr_w_err[205] != y_nr_enc[205] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 205 );
+       end
        y_nr_w_err[206] = 1 ; //error cword
-       if (y_nr_w_err[206] != y_nr_enc[206] ) err_cnt ++;
+       if (y_nr_w_err[206] != y_nr_enc[206] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 206 );
+       end
        y_nr_w_err[207] = 0 ; //error cword
-       if (y_nr_w_err[207] != y_nr_enc[207] ) err_cnt ++;
+       if (y_nr_w_err[207] != y_nr_enc[207] ) begin
+           err_cnt ++;
+           $display ("err_cnt : %0d at[%0d]", err_cnt, 207 );
+       end
      $display ("error cnt %0d  num_modified %0d", err_cnt , num_modified);
 
      for (int i=0;i<NN;i++) begin

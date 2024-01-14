@@ -35,7 +35,7 @@ parameter SUM_LEN= SUM_MM
 
 input wire  [NN-MM-1:0 ]         y_nr_in_port,
 output wire [NN-1:0]             y_nr_enc,
-output wire                      valid_cword,
+output wire                      valid_cword_enc,
 /* I1e4d9aa7cb1ef438f80454b61c625f0c6aed19675cb2c2f865cbd2e2c3ef2ff7 Ib8a92ab2b5e2e68fc63a575fff1d62c25ec6d30209e164d82ec85f5576d9d940 I5fedfe54fddcdc5145ac6dd38b4c3dead65f127535af2e07a7b9790515afdb04 */
 input wire                       clr,
 /* I1e4d9aa7cb1ef438f80454b61c625f0c6aed19675cb2c2f865cbd2e2c3ef2ff7 I2f08a120cf6d1091827fd5d929bad0cbcaa5eff7ae0801098357ed0149cbc06e I5fedfe54fddcdc5145ac6dd38b4c3dead65f127535af2e07a7b9790515afdb04 */
@@ -55,7 +55,7 @@ assign y_nr_in[NN-1   :NN-MM]=Ie92cd4bf91559fa3b7ff7e09054c786f5ead3b2e5930dda92
 
 
 
-sntc_ldpc_syndrome_wrapper I91a4661299ae4c39b62210ac04f903ca0081d0f8e0678b9b535f1f9220c022c9
+sntc_ldpc_syndrome_wrapper i_sntc_ldpc_syndrome_wrapper
 (
 
 
@@ -64,7 +64,7 @@ sntc_ldpc_syndrome_wrapper I91a4661299ae4c39b62210ac04f903ca0081d0f8e0678b9b535f
 /* I1e4d9aa7cb1ef438f80454b61c625f0c6aed19675cb2c2f865cbd2e2c3ef2ff7 Ib8a92ab2b5e2e68fc63a575fff1d62c25ec6d30209e164d82ec85f5576d9d940 I5fedfe54fddcdc5145ac6dd38b4c3dead65f127535af2e07a7b9790515afdb04 */
                                   .clr                    (clr),
 /* I1e4d9aa7cb1ef438f80454b61c625f0c6aed19675cb2c2f865cbd2e2c3ef2ff7 I2f08a120cf6d1091827fd5d929bad0cbcaa5eff7ae0801098357ed0149cbc06e I5fedfe54fddcdc5145ac6dd38b4c3dead65f127535af2e07a7b9790515afdb04 */
-                                  .valid_cword            (valid_cword),
+                                  .valid_cword            (valid_cword_enc),
                                   .rstn                   (rstn),
                                   .clk                    (clk)
 );
