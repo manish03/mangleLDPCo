@@ -40,8 +40,10 @@ parameter LEN            = MM,
 parameter SUM_NN_WDTH    = $clog2(SUM_NN+2),
 parameter SUM_MM_WDTH    = $clog2(SUM_MM+2),
 `include "NR_2_0_4/sntc_LDPC_dec_param.sv"
-`include "NR_2_0_4/flogtanh/GF2_LDPC_flogtanh_param_inc.sv"  ,
-`include "NR_2_0_4/fgallag/GF2_LDPC_fgallag_param_inc.sv"  ,
+`include "NR_2_0_4/flogtanh/GF2_LDPC_flogtanh_param_inc.sv" 
+ ,
+`include "NR_2_0_4/fgallag/GF2_LDPC_fgallag_param_inc.sv"
+  ,
 parameter MAX_SUM_WDTH_L = 24, //MAX_SUM_WDTH + 3,  // +1 for I04b29480233f4def5c875875b6bdc3b1 bit for I352655f17375a62637cdddfd1b812987
 parameter SGN_MAX_SUM_WDTH = MAX_SUM_WDTH_L - 1, //Ie86b28b55eaf8feb03e24730be892314 I04b29480233f4def5c875875b6bdc3b1 bit
 parameter MAX_SUM_WDTH_L_P1 = 24, //MAX_SUM_WDTH + 3,  // +1 for I04b29480233f4def5c875875b6bdc3b1 bit for I352655f17375a62637cdddfd1b812987

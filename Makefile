@@ -4,7 +4,7 @@ iverilog_comp:
 	/cygdrive/c/iverilog/bin/iverilog.exe \
 	-g2012 \
 	-DIVERILOG \
-	-I fgallag -I flogtanh -I inc  \
+	-I fgallag -I flogtanh -I inc  -I . \
 	-o sntc_ldpc_tb.vvp \
 	sntc_HamDist.svp.o.sv   \
 	sntc_ldpc_decoder.svp.o.sv   \
