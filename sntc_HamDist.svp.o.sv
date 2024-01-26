@@ -19,7 +19,7 @@
 /* I0c35fcd8aa6b70a1e6a2f67174222bd1 Ifaf61c215f3a90fcc150ac387f759daf I54a78636e8c6bd0efb73150b779d5eb5 */
 
 module  sntc_HamDist#(
-// I67ec42122b652ab9b7e9a4810f9f0db0/I58d53a433022417c56e36facb426c2b8.sv
+// NR_2_0_4/I58d53a433022417c56e36facb426c2b8.sv
 parameter MM   = 'h 000a8 ,
 // parameter MM =  'h  000a8  , 
 parameter NN   = 'h 000d0 ,
@@ -33,8 +33,7 @@ parameter rmax = 'h 0000a ,
 parameter SUM_NN=$clog2(NN+1), // 8 : I307afb7f348272492f3cca58ef2f95d8
 parameter SUM_MM=$clog2(MM+1), // 8 : If78618843e4df2223e60ec190987c019
 parameter LEN=MM,
-//parameter SUM_LEN= SUM_MM
-parameter SUM_LEN= 32
+parameter SUM_LEN= $clog2(NN+1)
 ) (
 
 

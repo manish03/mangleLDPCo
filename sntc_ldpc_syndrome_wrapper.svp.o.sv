@@ -19,7 +19,7 @@
 /* I0c35fcd8aa6b70a1e6a2f67174222bd1 Ifaf61c215f3a90fcc150ac387f759daf I54a78636e8c6bd0efb73150b779d5eb5 */
 
 module  sntc_ldpc_syndrome_wrapper#(
-// I67ec42122b652ab9b7e9a4810f9f0db0/I58d53a433022417c56e36facb426c2b8.sv
+// NR_2_0_4/I58d53a433022417c56e36facb426c2b8.sv
 parameter MM   = 'h 000a8 ,
 parameter NN   = 'h 000d0 ,
 parameter cmax = 'h 00017 ,
@@ -29,7 +29,7 @@ parameter rmax = 'h 0000a ,
 parameter SUM_NN=$clog2(NN+1), // 0 : Ieab71244afb687f16d8c4f5ee9d6ef0e : I307afb7f348272492f3cca58ef2f95d8 0
 parameter SUM_MM=$clog2(MM+1), // 0 : Ib3cd915d758008bd19d0f2428fbb354a : If78618843e4df2223e60ec190987c019 0
 parameter LEN=MM,
-parameter SUM_LEN= SUM_MM
+parameter SUM_LEN= $clog2(NN+1)
 ) (
 
 
@@ -43,13 +43,13 @@ input wire                       rstn,
 input wire                       clk
 );
 
-wire [MM-1:0]             Icab1e6ce3154e84b7ea0d3d9c82bcdc1;
+wire [MM-1:0]             syn_nr;
 
-assign syn_nr_port = Icab1e6ce3154e84b7ea0d3d9c82bcdc1;
+assign syn_nr_port = syn_nr;
 
-assign valid_cword = ~(|Icab1e6ce3154e84b7ea0d3d9c82bcdc1);
+assign valid_cword = ~(|syn_nr);
 
-`include  "sntc_syndrome.sv"
+`include  "NR_2_0_4/sntc_syndrome.sv"
 
 
 

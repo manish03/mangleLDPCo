@@ -19,7 +19,7 @@
 /* I0c35fcd8aa6b70a1e6a2f67174222bd1 Ifaf61c215f3a90fcc150ac387f759daf I54a78636e8c6bd0efb73150b779d5eb5 */
 
 module  sntc_ldpc_encoder_wrapper#(
-// I67ec42122b652ab9b7e9a4810f9f0db0/I58d53a433022417c56e36facb426c2b8.sv
+// NR_2_0_4/I58d53a433022417c56e36facb426c2b8.sv
 parameter MM   = 'h 000a8 ,
 parameter NN   = 'h 000d0 ,
 parameter cmax = 'h 00017 ,
@@ -29,7 +29,7 @@ parameter rmax = 'h 0000a ,
 parameter SUM_NN=$clog2(NN+1), // 0 : Ieab71244afb687f16d8c4f5ee9d6ef0e : I307afb7f348272492f3cca58ef2f95d8 0
 parameter SUM_MM=$clog2(MM+1), // 0 : Ib3cd915d758008bd19d0f2428fbb354a : If78618843e4df2223e60ec190987c019 0
 parameter LEN=MM,
-parameter SUM_LEN= SUM_MM
+parameter SUM_LEN= $clog2(NN+1)
 ) (
 
 
@@ -45,10 +45,10 @@ input wire                       clk
 
 wire [MM-1:0]             tmp_s;
 wire [NN-1:0]             y_nr_in;
-`include  "sntc_encoder.sv"
+`include  "NR_2_0_4/sntc_encoder.sv"
 
 assign y_nr_in[NN-MM-1:0    ]=y_nr_in_port[NN-MM-1:0    ];
-assign y_nr_in[NN-1   :NN-MM]=Idaf598a8b198420c0df8d1dac8e93649      [NN-1   :NN-MM];
+assign y_nr_in[NN-1   :NN-MM]=y_nr_p      [NN-1   :NN-MM];
 
 
 

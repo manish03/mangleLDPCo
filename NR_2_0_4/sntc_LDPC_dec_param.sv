@@ -1,1 +1,1 @@
-parameter MAX_SUM_WDTH = 19 ,
+parameter MAX_SUM_WDTH = 11 ,

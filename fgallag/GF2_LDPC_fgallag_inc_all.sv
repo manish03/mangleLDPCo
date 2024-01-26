@@ -1,20 +1,40 @@
-`include "GF2_LDPC_fgallag.sv"
-`include "GF2_LDPC_fgallag_0x00000_assign.sv"
-`include "GF2_LDPC_fgallag_0x00001_assign.sv"
-`include "GF2_LDPC_fgallag_0x00002_assign.sv"
-`include "GF2_LDPC_fgallag_0x00003_assign.sv"
-`include "GF2_LDPC_fgallag_0x00004_assign.sv"
-`include "GF2_LDPC_fgallag_0x00005_assign.sv"
-`include "GF2_LDPC_fgallag_0x00006_assign.sv"
-`include "GF2_LDPC_fgallag_0x00007_assign.sv"
-`include "GF2_LDPC_fgallag_0x00008_assign.sv"
-`include "GF2_LDPC_fgallag_0x00009_assign.sv"
-`include "GF2_LDPC_fgallag_0x0000a_assign.sv"
-`include "GF2_LDPC_fgallag_0x0000b_assign.sv"
-`include "GF2_LDPC_fgallag_0x0000c_assign.sv"
-`include "GF2_LDPC_fgallag_0x0000d_assign.sv"
-`include "GF2_LDPC_fgallag_0x0000e_assign.sv"
-`include "GF2_LDPC_fgallag_0x0000f_assign.sv"
-`include "GF2_LDPC_fgallag_0x00010_assign.sv"
-`include "GF2_LDPC_fgallag_0x00011_assign.sv"
-`include "GF2_LDPC_fgallag_0x00012_assign.sv"
+always_comb
+begin
+`include "GF2_LDPC_fgallag_0x00000.sv"
+end
+always_comb
+begin
+`include "GF2_LDPC_fgallag_0x00001.sv"
+end
+always_comb
+begin
+`include "GF2_LDPC_fgallag_0x00002.sv"
+end
+always_comb
+begin
+`include "GF2_LDPC_fgallag_0x00003.sv"
+end
+always_comb
+begin
+`include "GF2_LDPC_fgallag_0x00004.sv"
+end
+always_comb
+begin
+`include "GF2_LDPC_fgallag_0x00005.sv"
+end
+always_comb
+begin
+`include "GF2_LDPC_fgallag_0x00006.sv"
+end
+always_comb
+begin
+`include "GF2_LDPC_fgallag_0x00007.sv"
+end
+always_comb
+begin
+`include "GF2_LDPC_fgallag_0x00008.sv"
+end
+always_comb
+begin
+`include "GF2_LDPC_fgallag_0x00009.sv"
+end

@@ -19,7 +19,7 @@
 /* I0c35fcd8aa6b70a1e6a2f67174222bd1 Ifaf61c215f3a90fcc150ac387f759daf I54a78636e8c6bd0efb73150b779d5eb5 */
 
 module  sntc_ldpc_decoder_wrapper #(
-// I67ec42122b652ab9b7e9a4810f9f0db0/I58d53a433022417c56e36facb426c2b8.sv
+// NR_2_0_4/I58d53a433022417c56e36facb426c2b8.sv
 parameter MM   = 'h 000a8 ,
 // parameter MM =  'h  000a8  , 
 parameter NN   = 'h 000d0 ,
@@ -35,9 +35,7 @@ parameter SUM_MM         = $clog2(MM+1), // 8 : If78618843e4df2223e60ec190987c01
 parameter LEN            = MM,
 parameter SUM_NN_WDTH    = $clog2(SUM_NN+2),
 parameter SUM_MM_WDTH    = $clog2(SUM_MM+2),
-`include "sntc_LDPC_dec_param.sv"
-//parameter SUM_LEN        = SUM_MM
-parameter SUM_LEN        = 32
+parameter SUM_LEN= $clog2(NN+1)
 
 ) (
 
@@ -75,7 +73,6 @@ wire [MM-1:0]                 cur_syndrome;
 wire [SUM_LEN-1:0]            HamDist_sum_mm;
 reg  [SUM_LEN-1:0]            HamDist_loop;
 reg  [SUM_LEN-1:0]            HamDist_cntr;
-wire                          hamming_code_calc_out;
 reg                           iter_start_int;
 
 
@@ -103,7 +100,6 @@ sntc_ldpc_decoder Ic5e4ebe6a5880da879436ddf262ba2e8
                                   .q0_1                   (q0_1),
                                   .final_y_nr_dec         (final_y_nr_dec),
                                   .exp_syn                (exp_syn),
-                                  .cur_syndrome           (cur_syndrome),
                                   .percent_probability_int(percent_probability_int),
 
                                   .HamDist_sum_mm         (HamDist_sum_mm),
@@ -122,7 +118,6 @@ sntc_ldpc_decoder Ic5e4ebe6a5880da879436ddf262ba2e8
 
                                   .start_dec              (start_dec),
                                   .iter_start_int         (iter_start_int),
-                                  .hamming_code_calc_out  (hamming_code_calc_out),
 /* I0c35fcd8aa6b70a1e6a2f67174222bd1 Ifaf61c215f3a90fcc150ac387f759daf I3bc180bd00be2c60a3a5a68e0dd49503 */
                                   .clr                    (clr),
 /* I0c35fcd8aa6b70a1e6a2f67174222bd1 I18c0d99dcef0c6b3cc1cadd623fdbf9f I3bc180bd00be2c60a3a5a68e0dd49503 */
@@ -170,11 +165,11 @@ always_comb HamDist_loop = HamDist_cntr;
 
 endmodule
 
-//C Ia642a85aab89544a289fb1f29eab689d: Ib6f6b4efd9391d1fa207d325ff1bbd60 I83878c91171338902e0fe0fb97a8c47a:0.100000 I7290d6b1f1458098d2f225877e609ba6:2.197225 percent_probability_int:'d4500
+//C Ia642a85aab89544a289fb1f29eab689d: Ib6f6b4efd9391d1fa207d325ff1bbd60 I83878c91171338902e0fe0fb97a8c47a:0.100000 I7290d6b1f1458098d2f225877e609ba6:2.197225 percent_probability_int:'d141
 
  //Ic07b0b4d7660314f711a68fc47c4ab38 I48d8d6f5a3efbf52837d6b788a22859a valid Ic13367945d5d4c91047b3b50234aa7ab Ic47d187067c6cf953245f128b5fde62a
 //y_int:
- //462d03cd366ba17b39e149628fe20b0640ff49b27104e774ce83
+ //44010bdd34c9a17a9dc5c9798ef00a0604fe89b67904e634be0b
 //Iebc6097498b06421e2759a773c992ed3:
- //612c501115962aad76ce8207211dbe3416e483efed
-//C Ia642a85aab89544a289fb1f29eab689d: Ib6f6b4efd9391d1fa207d325ff1bbd60 I83878c91171338902e0fe0fb97a8c47a:0.225962 I7290d6b1f1458098d2f225877e609ba6:1.231257 percent_probability_int:'d2522
+ //0200400200100008100880c0000680200320002200
+//C Ia642a85aab89544a289fb1f29eab689d: Ib6f6b4efd9391d1fa207d325ff1bbd60 I83878c91171338902e0fe0fb97a8c47a:0.038462 I7290d6b1f1458098d2f225877e609ba6:3.218876 percent_probability_int:'d206
