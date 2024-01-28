@@ -1,21 +1,21 @@
-reg [flogtanh_WDTH -1:0] I48b438f1cbf654dacb5ca6bd28e924d6, Ida9cf0ff6fe9afcde8fb6e10f4a2a9a3;
-reg [flogtanh_WDTH -1:0] I5e1d2582c82a255ad5580f16c60761e1, I9ff622ac8ef93a7d8d1bf5f91cd0f972;
-reg [flogtanh_WDTH -1:0] I32198fda41835969465ac7244753c104, I35a5875790032fa907cbfff6be72a604;
-reg [flogtanh_WDTH -1:0] I059f3ca58475484c4ed68b5ab609dbdf, Ica42b16ad8703e0088757d8a95c17578;
-reg I3e9099746c6234d8a775cc10a27475db ;
+reg [flogtanh_WDTH -1:0] flogtanh0x00007_0, flogtanh0x00007_0_q;
+reg [flogtanh_WDTH -1:0] flogtanh0x00007_1, flogtanh0x00007_1_q;
+reg [flogtanh_WDTH -1:0] flogtanh0x00007_2, flogtanh0x00007_2_q;
+reg [flogtanh_WDTH -1:0] flogtanh0x00007_3, flogtanh0x00007_3_q;
+reg start_d_flogtanh0x00007_q ;
 always @(posedge clk or negedge rstn)
 if (!rstn) begin
- Ida9cf0ff6fe9afcde8fb6e10f4a2a9a3 <= 'h0;
- I9ff622ac8ef93a7d8d1bf5f91cd0f972 <= 'h0;
- I35a5875790032fa907cbfff6be72a604 <= 'h0;
- Ica42b16ad8703e0088757d8a95c17578 <= 'h0;
- I3e9099746c6234d8a775cc10a27475db <= 'h0;
+ flogtanh0x00007_0_q <= 'h0;
+ flogtanh0x00007_1_q <= 'h0;
+ flogtanh0x00007_2_q <= 'h0;
+ flogtanh0x00007_3_q <= 'h0;
+ start_d_flogtanh0x00007_q <= 'h0;
 end
 else
 begin
- Ida9cf0ff6fe9afcde8fb6e10f4a2a9a3 <=  I48b438f1cbf654dacb5ca6bd28e924d6;
- I9ff622ac8ef93a7d8d1bf5f91cd0f972 <=  I5e1d2582c82a255ad5580f16c60761e1;
- I35a5875790032fa907cbfff6be72a604 <=  I32198fda41835969465ac7244753c104;
- Ica42b16ad8703e0088757d8a95c17578 <=  I059f3ca58475484c4ed68b5ab609dbdf;
- I3e9099746c6234d8a775cc10a27475db <=  I15b8b4ba53e3a9c28963b71290c5e986;
+ flogtanh0x00007_0_q <=  flogtanh0x00007_0;
+ flogtanh0x00007_1_q <=  flogtanh0x00007_1;
+ flogtanh0x00007_2_q <=  flogtanh0x00007_2;
+ flogtanh0x00007_3_q <=  flogtanh0x00007_3;
+ start_d_flogtanh0x00007_q <=  start_d_flogtanh0x00006_q;
 end

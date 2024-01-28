@@ -1,27 +1,27 @@
-reg [flogtanh_WDTH -1:0] I480377e3a6fbaf775422573d801193be, I0ebde8b0a0a9c3a82d4f39df14847380;
-reg [flogtanh_WDTH -1:0] I21550e4abf93f66dbb624e2fa12724ae, I2ae51e715df3b82f8423e1ff250759f8;
-reg [flogtanh_WDTH -1:0] I1399556483c51f8d866cc756d4d485f5, I07f0737fd7f5850a2cdb598766659236;
-reg [flogtanh_WDTH -1:0] I98c3b475d2c5967e0fea09dd872baf38, Ie16c5883507cd5b149f7a43cd008f5ef;
-reg [flogtanh_WDTH -1:0] I7850d8a8e92d9764f664675c922eca89, I3c21bd722bd9c579d4bc131cce931bcf;
-reg [flogtanh_WDTH -1:0] Ib55eb35fe60a4878bffecac46af4d0d6, I2c5fbe64fd51b745d0db44e5464155b0;
-reg I15b8b4ba53e3a9c28963b71290c5e986 ;
+reg [flogtanh_WDTH -1:0] flogtanh0x00006_0, flogtanh0x00006_0_q;
+reg [flogtanh_WDTH -1:0] flogtanh0x00006_1, flogtanh0x00006_1_q;
+reg [flogtanh_WDTH -1:0] flogtanh0x00006_2, flogtanh0x00006_2_q;
+reg [flogtanh_WDTH -1:0] flogtanh0x00006_3, flogtanh0x00006_3_q;
+reg [flogtanh_WDTH -1:0] flogtanh0x00006_4, flogtanh0x00006_4_q;
+reg [flogtanh_WDTH -1:0] flogtanh0x00006_5, flogtanh0x00006_5_q;
+reg start_d_flogtanh0x00006_q ;
 always @(posedge clk or negedge rstn)
 if (!rstn) begin
- I0ebde8b0a0a9c3a82d4f39df14847380 <= 'h0;
- I2ae51e715df3b82f8423e1ff250759f8 <= 'h0;
- I07f0737fd7f5850a2cdb598766659236 <= 'h0;
- Ie16c5883507cd5b149f7a43cd008f5ef <= 'h0;
- I3c21bd722bd9c579d4bc131cce931bcf <= 'h0;
- I2c5fbe64fd51b745d0db44e5464155b0 <= 'h0;
- I15b8b4ba53e3a9c28963b71290c5e986 <= 'h0;
+ flogtanh0x00006_0_q <= 'h0;
+ flogtanh0x00006_1_q <= 'h0;
+ flogtanh0x00006_2_q <= 'h0;
+ flogtanh0x00006_3_q <= 'h0;
+ flogtanh0x00006_4_q <= 'h0;
+ flogtanh0x00006_5_q <= 'h0;
+ start_d_flogtanh0x00006_q <= 'h0;
 end
 else
 begin
- I0ebde8b0a0a9c3a82d4f39df14847380 <=  I480377e3a6fbaf775422573d801193be;
- I2ae51e715df3b82f8423e1ff250759f8 <=  I21550e4abf93f66dbb624e2fa12724ae;
- I07f0737fd7f5850a2cdb598766659236 <=  I1399556483c51f8d866cc756d4d485f5;
- Ie16c5883507cd5b149f7a43cd008f5ef <=  I98c3b475d2c5967e0fea09dd872baf38;
- I3c21bd722bd9c579d4bc131cce931bcf <=  I7850d8a8e92d9764f664675c922eca89;
- I2c5fbe64fd51b745d0db44e5464155b0 <=  Ib55eb35fe60a4878bffecac46af4d0d6;
- I15b8b4ba53e3a9c28963b71290c5e986 <=  I317f33f435342ed704cee1defacfb4d6;
+ flogtanh0x00006_0_q <=  flogtanh0x00006_0;
+ flogtanh0x00006_1_q <=  flogtanh0x00006_1;
+ flogtanh0x00006_2_q <=  flogtanh0x00006_2;
+ flogtanh0x00006_3_q <=  flogtanh0x00006_3;
+ flogtanh0x00006_4_q <=  flogtanh0x00006_4;
+ flogtanh0x00006_5_q <=  flogtanh0x00006_5;
+ start_d_flogtanh0x00006_q <=  start_d_flogtanh0x00005_q;
 end
