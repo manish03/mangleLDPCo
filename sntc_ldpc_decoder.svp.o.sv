@@ -48,7 +48,8 @@ parameter MAX_SUM_WDTH_L = 24, //MAX_SUM_WDTH + 3,  // +1 for sign bit for sum0
 parameter SGN_MAX_SUM_WDTH = MAX_SUM_WDTH_L - 1, //Ie86b28b55eaf8feb03e24730be892314 sign bit
 parameter MAX_SUM_WDTH_L_P1 = 24, //MAX_SUM_WDTH + 3,  // +1 for sign bit for sum0
 parameter SGN_MAX_SUM_WDTH_P1 = MAX_SUM_WDTH_L_P1 - 1, //Ie86b28b55eaf8feb03e24730be892314 sign bit
-parameter SUM_LEN= $clog2(NN+1)
+parameter SUM_LEN= $clog2(NN+1),
+parameter HAM_LEN= 16
 ) (
 
 input wire [NN-1:0]                  q0_0,
@@ -60,18 +61,18 @@ input wire [31:0]                    percent_probability_int,
 
 
 input wire  [SUM_LEN-1:0]            HamDist_sum_mm,
-input wire  [SUM_LEN-1:0]            HamDist_loop,
-input wire  [SUM_LEN-1:0]            HamDist_loop_max,
-input wire  [SUM_LEN-1:0]            HamDist_loop_percentage,
+input wire  [HAM_LEN-1:0]            HamDist_loop,
+input wire  [HAM_LEN-1:0]            HamDist_loop_max,
+input wire  [HAM_LEN-1:0]            HamDist_loop_percentage,
 
 output reg                           converged_loops_ended,
 output reg                           converged_pass_fail,
 
 output reg                           HamDist_cntr_inc_converged_valid,
 
-input wire  [SUM_LEN-1:0]            HamDist_iir1,
-input wire  [SUM_LEN-1:0]            HamDist_iir2,
-input wire  [SUM_LEN-1:0]            HamDist_iir3,
+input wire  [HAM_LEN-1:0]            HamDist_iir1,
+input wire  [HAM_LEN-1:0]            HamDist_iir2,
+input wire  [HAM_LEN-1:0]            HamDist_iir3,
 
 input wire                           start_dec,
 input wire                           iter_start_int,
@@ -15270,10 +15271,10 @@ assign I6033532f27c26b2d42bb3ea128f80dfa =  ~Iefc1488e3eb60b99ae08d904a15c5242+ 
 
 
 
-reg  [SUM_LEN-1:0]               HamDist_iir;
-reg  [SUM_LEN-1:0]               Ib325dab091dfc3a1a269adb3ea9c75cd;
-reg  [SUM_LEN-1:0]               Ifc045af19c3f10d92d2b0dfb4fbbde38;
-reg  [SUM_LEN-1:0]               HamDist_iir_prod;
+reg  [HAM_LEN-1:0]               HamDist_iir;
+reg  [HAM_LEN-1:0]               Ib325dab091dfc3a1a269adb3ea9c75cd;
+reg  [HAM_LEN-1:0]               Ifc045af19c3f10d92d2b0dfb4fbbde38;
+reg  [HAM_LEN-1:0]               HamDist_iir_prod;
 
 localparam I0c5eab3e4dfde17a8c7261f7827e941c = 50;
 
@@ -64949,7 +64950,7 @@ end
    always @(posedge clk or negedge rstn)
    begin
        if (!rstn) begin
-              Ifc045af19c3f10d92d2b0dfb4fbbde38 <= {(SUM_LEN){1'b0}};
+              Ifc045af19c3f10d92d2b0dfb4fbbde38 <= {(HAM_LEN){1'b0}};
        end else begin
            if (start_d8) begin
               if (Ib325dab091dfc3a1a269adb3ea9c75cd <= HamDist_sum_mm) begin
@@ -64957,7 +64958,7 @@ end
               end
            end
            else if (start_dec) begin
-                  Ifc045af19c3f10d92d2b0dfb4fbbde38 <= {(SUM_LEN){1'b0}};
+                  Ifc045af19c3f10d92d2b0dfb4fbbde38 <= {(HAM_LEN){1'b0}};
            end
        end
    end
@@ -64983,11 +64984,11 @@ end
    always @(posedge clk or negedge rstn)
    begin
        if (!rstn) begin
-                 Ib325dab091dfc3a1a269adb3ea9c75cd <= {(SUM_LEN){1'b0}};
+                 Ib325dab091dfc3a1a269adb3ea9c75cd <= {(HAM_LEN){1'b0}};
        end else begin
           if (start_d8) begin
              if (HamDist_loop == 0)
-                 Ib325dab091dfc3a1a269adb3ea9c75cd <= {(SUM_LEN){1'b0}};
+                 Ib325dab091dfc3a1a269adb3ea9c75cd <= {(HAM_LEN){1'b0}};
              else
                  Ib325dab091dfc3a1a269adb3ea9c75cd <= HamDist_sum_mm;
           end

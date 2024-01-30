@@ -35,7 +35,8 @@ parameter SUM_MM         = $clog2(MM+1), // 8 : If78618843e4df2223e60ec190987c01
 parameter LEN            = MM,
 parameter SUM_NN_WDTH    = $clog2(SUM_NN+2),
 parameter SUM_MM_WDTH    = $clog2(SUM_MM+2),
-parameter SUM_LEN= $clog2(NN+1)
+parameter SUM_LEN= $clog2(NN+1),
+parameter HAM_LEN= 16
 
 ) (
 
@@ -47,12 +48,12 @@ output wire  [NN-1:0]                final_y_nr_dec,
 
 input wire  [MM-1:0]                 exp_syn,
 input wire  [31:0]                   percent_probability_int,
-input wire  [SUM_LEN-1:0]            HamDist_loop_max,
-input wire  [SUM_LEN-1:0]            HamDist_loop_percentage,
+input wire  [HAM_LEN-1:0]            HamDist_loop_max,
+input wire  [HAM_LEN-1:0]            HamDist_loop_percentage,
 
-input wire  [SUM_LEN-1:0]            HamDist_iir1,
-input wire  [SUM_LEN-1:0]            HamDist_iir2,
-input wire  [SUM_LEN-1:0]            HamDist_iir3,
+input wire  [HAM_LEN-1:0]            HamDist_iir1,
+input wire  [HAM_LEN-1:0]            HamDist_iir2,
+input wire  [HAM_LEN-1:0]            HamDist_iir3,
 
 output wire                          converged_loops_ended,
 output wire                          converged_pass_fail,
@@ -71,8 +72,8 @@ input wire                           clk
 
 wire [MM-1:0]                 cur_syndrome;
 wire [SUM_LEN-1:0]            HamDist_sum_mm;
-reg  [SUM_LEN-1:0]            HamDist_loop;
-reg  [SUM_LEN-1:0]            HamDist_cntr;
+reg  [HAM_LEN-1:0]            HamDist_loop;
+reg  [HAM_LEN-1:0]            HamDist_cntr;
 reg                           iter_start_int;
 
 
@@ -147,7 +148,7 @@ sntc_HamDist I56aaf48351b3f65ab4d6fbe172ba3387
 always @(posedge clk or negedge rstn)
 begin
    if (~rstn) begin
-       HamDist_cntr <= {SUM_LEN{1'b0}};
+       HamDist_cntr <= {HAM_LEN{1'b0}};
    end else begin
 
        if (HamDist_cntr_inc_converged_valid) begin

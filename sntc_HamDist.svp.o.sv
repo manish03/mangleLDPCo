@@ -33,7 +33,8 @@ parameter rmax = 'h 0000a ,
 parameter SUM_NN=$clog2(NN+1), // 8 : I307afb7f348272492f3cca58ef2f95d8
 parameter SUM_MM=$clog2(MM+1), // 8 : If78618843e4df2223e60ec190987c019
 parameter LEN=MM,
-parameter SUM_LEN= $clog2(NN+1)
+parameter SUM_LEN= $clog2(NN+1),
+parameter HAM_LEN= 16
 ) (
 
 

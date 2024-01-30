@@ -39,7 +39,8 @@ parameter SUM_NN_WDTH    = $clog2(SUM_NN+2),
 parameter SUM_MM_WDTH    = $clog2(SUM_MM+2),
 `include  "NR_2_0_4/sntc_LDPC_dec_param.sv"
 parameter MAX_SUM_WDTH_LONG = MAX_SUM_WDTH +1,
-parameter SUM_LEN= $clog2(NN+1)
+parameter SUM_LEN= $clog2(NN+1),
+parameter HAM_LEN= 16
 
 ) (
 input wire clk_tb,
@@ -386,10 +387,10 @@ reg  [NN-1:0]                 q0_1;
 wire [MM-1:0]                 syndrome;
 reg  [MM-1:0]                 exp_syn;
 wire [SUM_LEN-1:0]            HamDist_sum_mm;
-reg  [SUM_LEN-1:0]            HamDist_loop;
-reg  [SUM_LEN-1:0]            HamDist_cntr;
-reg  [SUM_LEN-1:0]            HamDist_loop_max;
-reg  [SUM_LEN-1:0]            HamDist_loop_percentage;
+reg  [HAM_LEN-1:0]            HamDist_loop;
+reg  [HAM_LEN-1:0]            HamDist_cntr;
+reg  [HAM_LEN-1:0]            HamDist_loop_max;
+reg  [HAM_LEN-1:0]            HamDist_loop_percentage;
 wire [1:0]                    converged;
 reg                           start_int;
 wire                          valid_int;
@@ -402,9 +403,9 @@ wire                          valid;
 wire [31:0]                   percent_probability_int;
 real                          percent_probability_real;
 
-reg  [SUM_LEN-1:0]            HamDist_iir1;
-reg  [SUM_LEN-1:0]            HamDist_iir2;
-reg  [SUM_LEN-1:0]            HamDist_iir3;
+reg  [HAM_LEN-1:0]            HamDist_iir1;
+reg  [HAM_LEN-1:0]            HamDist_iir2;
+reg  [HAM_LEN-1:0]            HamDist_iir3;
 reg                           c_test =0;
 
 always_comb begin
