@@ -1,17 +1,15 @@
 all: iverilog_comp run_vvp
 
+## iverilog -g2012 -Ttyp -DFUNCTIONAL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 \
+##         -f/media/psf/Home/Downloads/sljt1.comp.xfer/backupcvs/hcb1/hcb/LDPCENCDEC/mgmt_core_wrapper/verilog/includes/includes.rtl.caravel \
+##         -f/media/psf/Home/Downloads/sljt1.comp.xfer/backupcvs/hcb1/hcb/LDPCENCDEC/verilog/includes/includes.rtl.caravel_user_project -o wb_port.vvp wb_port_tb.v
 iverilog_comp:
-	/cygdrive/c/iverilog/bin/iverilog.exe \
-	-g2012 \
+	iverilog \
+	-Ttyp -DFUNCTIONAL -DSIM -DUSE_POWER_PINS -DUNIT_DELAY=#1 \
 	-DIVERILOG \
-	-I fgallag -I flogtanh -I inc  -I . \
-	-o sntc_ldpc_tb.vvp \
-	sntc_HamDist.svp.o.sv   \
-	sntc_ldpc_decoder.svp.o.sv   \
-	sntc_ldpc_decoder_wrapper.svp.o.sv   \
-	sntc_ldpc_encoder_wrapper.svp.o.sv   \
-	sntc_ldpc_syndrome_wrapper.svp.o.sv  \
-	sntc_ldpc_tb.svp.o.sv
+	-fincludes.rtl.caravel_user_project \
+	-o sntc_ldpc.vvp \
+	sntc_ldpc_tb.svp.o.sv \
 
 run_vvp:
 	/cygdrive/c/iverilog/bin/vvp.exe \
